@@ -5,51 +5,6 @@
 
 		<!-- BUSH: FIRE BUSH ______________________________________-->
 		<!-- WILD: Fire Bush -->
-		<block name="tree_EssenceFire">
-			<property name="Extends" value="plantedYucca3Harvest"/>
-			<property name="CreativeMode" value="Player"/>
-			<drop event="Destroy" name="terrStone" count="1" prob=".02"/>
-			<property name="DisplayInfo" value="Name"/>
-		</block>
-
-
-		<!-- BUSH: ICE BUSH ______________________________________-->
-		<!-- WILD: Ice Bush -->
-		<block name="tree_EssenceIce">
-			<property name="Extends" value="plantedYucca3Harvest"/>
-			<property name="CreativeMode" value="Player"/>
-			<property name="CustomIcon" value="tree_EssenceIce"/>
-			<drop event="Destroy" name="terrStone" count="100,120" tag="essenceIceHarvest"/>
-			<property name="DisplayInfo" value="Name"/>
-		</block>
-
-
-		<!-- BUSH: LIGHTNING BUSH ______________________________________-->
-		<!-- WILD: Lightning Bush -->
-		<block name="tree_EssenceLightning">
-			<property name="Extends" value="plantedYucca3Harvest"/>
-			<property name="CreativeMode" value="Player"/>
-			<property name="CustomIcon" value="tree_EssenceLightning"/>
-			<drop event="Destroy" name="terrStone" count="100,120" tag="essenceLightningHarvest"/>
-			<property name="DisplayInfo" value="Name"/>
-		</block>
-
-
-
-		<!-- NOTE: buffSorceryManage: SHRINE MANAGE -->
-		<!-- ARCANE SHRINE: POTION -->
-		<block name="shrinePotion">
-			<property name="Extends" value="stalagmite04"/>
-			<property name="CreativeMode" value="Player"/>
-			<property name="CustomIcon" value="stalagmite04"/>
-			<property name="DisplayInfo" value="Name"/>
-			<drop event="Destroy" name="普通灵石"  count="20,100" tag="基础物资Harvest"/>
-			<drop event="Destroy" name="金灵石"  count="0,5" prob="0.3" tag="基础物资Harvest"/>
-			<drop event="Destroy" name="木灵石"  count="0,5" prob="0.3" tag="基础物资Harvest"/>
-			<drop event="Destroy" name="水灵石"  count="0,5" prob="0.3" tag="基础物资Harvest"/>
-			<drop event="Destroy" name="火灵石"  count="0,5" prob="0.3" tag="基础物资Harvest"/>
-			<drop event="Destroy" name="土灵石"  count="0,5" prob="0.3" tag="基础物资Harvest"/>
-		</block>
 
 		<block name="灵石矿">
 			<property name="Extends" value="stalagmite04"/>
