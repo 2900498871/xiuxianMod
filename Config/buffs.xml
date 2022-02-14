@@ -47,11 +47,11 @@
 
 	<append xpath="/buffs">
 	
-	<buff name="修为" name_key="[FFFF00]枫叶" description_key="枫叶Desc" tooltip_key="[00FFFF]枫叶" icon="ui_game_symbol_intellect" icon_color="255,0,255" hidden="false" remove_on_death="false">
+	<buff name="修为" name_key="[FFFF00]灵气" description_key="灵气Desc" tooltip_key="[00FFFF]灵气" icon="ui_game_symbol_intellect" icon_color="255,0,255" hidden="false" remove_on_death="false">
 		<stack_type value="ignore"/>
 		<duration value="0"/>
 		<display_value value="FYNL"/>
-		<display_value_key value="[00FFFF]枫叶值[FFFFFF]:[FFFF00]{0:0.00}[FFFFFF]%[FFFFFF]"/>
+		<display_value_key value="[00FFFF]灵气值[FFFFFF]:[FFFF00]{0:0.00}[FFFFFF]%[FFFFFF]"/>
 		<effect_group>
               <triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="经验获取">
 			          <requirement name="NotHasBuff" buff="经验获取"/> 
