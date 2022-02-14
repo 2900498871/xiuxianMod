@@ -1,0 +1,863 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fengye>
+
+	<!-- <set xpath="/buffs/buff[@name='buffStatusCheck01']/update_rate/@value">.5</set> -->
+	<append xpath="/buffs/buff[@name='buffStatusCheck01']">
+	   <effect_group>
+		  <triggered_effect trigger="onSelfEnteredGame" target="self" action="AddBuff" buff="修为,感知,大道重生">
+		           <requirement name="NotHasBuff" buff="修为"/>
+				   <requirement name="NotHasBuff" buff="感知"/>
+				   <requirement name="NotHasBuff" buff="大道重生"/>
+                   <requirement name="NotHasBuff" buff="筑基境"/>
+				   <requirement name="NotHasBuff" buff="元丹境"/> 
+				   <requirement name="NotHasBuff" buff="元婴境"/> 
+				   <requirement name="NotHasBuff" buff="化神境"/> 
+				   <requirement name="NotHasBuff" buff="炼虚境"/> 
+				   <requirement name="NotHasBuff" buff="合体境"/> 
+				   <requirement name="NotHasBuff" buff="大乘境"/> 
+				   <requirement name="NotHasBuff" buff="半神境"/> 
+				   <requirement name="NotHasBuff" buff="真神境"/> 
+				   <requirement name="NotHasBuff" buff="灵武境"/> 
+				   <requirement name="NotHasBuff" buff="神武境"/> 
+				   <requirement name="NotHasBuff" buff="地阴境"/> 
+				   <requirement name="NotHasBuff" buff="天阳境"/> 
+				   <requirement name="NotHasBuff" buff="生死境"/> 
+				   <requirement name="NotHasBuff" buff="涅槃境"/> 
+				   <requirement name="NotHasBuff" buff="散仙"/> 
+				   <requirement name="NotHasBuff" buff="真仙"/>
+          </triggered_effect>
+		  
+		   <triggered_effect trigger="onSelfBuffUpdate" target="self" action="AddBuff" buff="天劫">
+		           <requirement name="CVarCompare" cvar="FYNL" operation="GTE" value="100"/> 
+          </triggered_effect>
+        
+ <!--在死亡先判断轮回次数是否大于3，如果大于等于3，当前境界死亡后轮回次数减1-->
+			<!--	<triggered_effect trigger="onSelfRespawn" action="ModifyCVar" cvar="CS" operation="subtract" value="1">
+				       <requirement name="CVarCompare" cvar="CS" operation="GTE" value="5"/>
+					   <requirement name="CVarCompare" cvar="CS" operation="LTE" value="7"/>
+				</triggered_effect>-->
+
+		  <!-- <triggered_effect trigger="onSelfRespawn" action="ModifyCVar" cvar="CS" operation="subtract" value="1">
+			   <requirement name="CVarCompare" cvar="CS" operation="GTE" value="5"/>
+			   <requirement name="CVarCompare" cvar="CS" operation="LTE" value="7"/>
+		   </triggered_effect>-->
+        </effect_group>
+
+	</append>
+
+	<append xpath="/buffs">
+	
+	<buff name="修为" name_key="[FFFF00]枫叶" description_key="枫叶Desc" tooltip_key="[00FFFF]枫叶" icon="ui_game_symbol_intellect" icon_color="255,0,255" hidden="false" remove_on_death="false">
+		<stack_type value="ignore"/>
+		<duration value="0"/>
+		<display_value value="FYNL"/>
+		<display_value_key value="[00FFFF]枫叶值[FFFFFF]:[FFFF00]{0:0.00}[FFFFFF]%[FFFFFF]"/>
+		<effect_group>
+              <triggered_effect trigger="onSelfBuffUpdate" action="AddBuff" buff="经验获取">
+			          <requirement name="NotHasBuff" buff="经验获取"/> 
+			  </triggered_effect>
+		</effect_group>
+	</buff>
+	<buff name="经验获取" name_key="[00FFFF]经验获取" description_key="[00FFFF]经验获取." tooltip_key="[00FFFF]经验获取" icon="ui_game_symbol_intellect" icon_color="0,255,255" hidden="true" remove_on_death="false">
+
+		<stack_type value="ignore"/>
+		<duration value="30"/>
+		<effect_group><!--每10s增加一次修为-->
+		       <triggered_effect trigger="onSelfBuffFinish" action="ModifyCVar" cvar="FYNL" operation="add" value="@FYXW"/>
+			   <!--轮回后格外增加修为数值-->
+			   <triggered_effect trigger="onSelfBuffFinish" action="ModifyCVar" cvar="FYNL" operation="add" value="0.01">
+			        <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="1"/><!--等于-->
+			  </triggered_effect>
+			  <triggered_effect trigger="onSelfBuffFinish" action="ModifyCVar" cvar="FYNL" operation="add" value="0.02">
+			        <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="2"/><!--等于-->
+			  </triggered_effect>
+			  <triggered_effect trigger="onSelfBuffFinish" action="ModifyCVar" cvar="FYNL" operation="add" value="0.03">
+			        <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="3"/><!--等于-->
+			  </triggered_effect>
+			  <triggered_effect trigger="onSelfBuffFinish" action="ModifyCVar" cvar="FYNL" operation="add" value="0.05">
+			        <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="4"/><!--等于-->
+			  </triggered_effect>
+		</effect_group>
+	</buff>
+	
+   <buff name="天劫" name_key="[00FFFF]天劫" description_key="[FFFF00]天劫.[FF0000]注意：你正在渡劫！将持续掉血，请注意！" tooltip_key="[00FFFF]天劫" icon="ui_game_symbol_electric_power" icon_color="255,0,255" hidden="false" remove_on_death="false">
+		<stack_type value="ignore"/>
+		<duration value="30"/>
+		<effect_group>
+		    <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="FYNL" operation="set" value="0"/>
+			<triggered_effect trigger="onSelfBuffStart" action="AttachParticleEffectToEntity" particle="p_electric_shock" parent_transform="Spine1" local_offset="0,-.2,0"/>
+			<triggered_effect trigger="onSelfEnteredGame" action="AttachParticleEffectToEntity" particle="p_electric_shock" parent_transform="Spine1" local_offset="0,-.2,0"/>
+
+			<triggered_effect trigger="onSelfDied" action="RemoveParticleEffectFromEntity" particle="p_electric_shock"/>
+
+			<triggered_effect trigger="onSelfBuffFinish" action="RemoveParticleEffectFromEntity" particle="p_electric_shock"/>
+			<triggered_effect trigger="onSelfBuffRemove" action="RemoveParticleEffectFromEntity" particle="p_electric_shock"/>
+			<triggered_effect trigger="onSelfBuffRemove" action="ModifyCVar" cvar="ETrapHit" operation="set" value="0"/>
+			<triggered_effect trigger="onSelfLeaveGame" action="RemoveParticleEffectFromEntity" particle="p_electric_shock"/>
+
+			<triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="electric_fence_impact"/>
+			<triggered_effect trigger="onSelfBuffRemove" action="FadeOutSound" sound="electric_fence_impact"/>
+			<triggered_effect trigger="onSelfLeaveGame" action="StopSound" sound="electric_fence_impact"/>
+		</effect_group>
+		
+		<effect_group>
+		    <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="@FYSH">
+		          <requirement name="HasBuff" buff="感知"/>
+		    </triggered_effect>
+			<triggered_effect trigger="onSelfBuffFinish" action="AddBuff" buff="筑基境">
+			            <requirement name="HasBuff" buff="感知"/>
+			</triggered_effect>
+			
+			 <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="multiply" value="0.99">
+		         <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="1"/><!--等于-->
+		    </triggered_effect>
+			 <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="multiply" value="0.985">
+		          <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="2"/><!--等于-->
+		    </triggered_effect>
+			 <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="multiply" value="0.97">
+		         <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="3"/><!--等于-->
+		    </triggered_effect>
+			 <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="multiply" value="0.955">
+		          <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="4"/><!--等于-->
+		    </triggered_effect>
+
+			
+			 <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="2">
+		         <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="1"/><!--等于-->
+		    </triggered_effect>
+			 <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="4">
+		          <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="2"/><!--等于-->
+		    </triggered_effect>
+			 <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="6">
+		         <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="3"/><!--等于-->
+		    </triggered_effect>
+			 <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="8">
+		          <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="4"/><!--等于-->
+		    </triggered_effect>
+
+		</effect_group>
+		
+        <effect_group>
+		    <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="@FYSH">
+		          <requirement name="HasBuff" buff="筑基境"/>
+		    </triggered_effect>
+            <triggered_effect trigger="onSelfBuffFinish" action="AddBuff" fireOneBuff="true" buff="筑基境,元丹境" weights="5,95">
+			            <requirement name="HasBuff" buff="筑基境"/>
+			</triggered_effect>			
+		</effect_group>
+		
+		<effect_group>
+		   <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="@FYSH">
+		          <requirement name="HasBuff" buff="元丹境"/>
+		    </triggered_effect>
+            <triggered_effect trigger="onSelfBuffFinish" action="AddBuff" fireOneBuff="true" buff="元丹境,元婴境" weights="10,90">
+			            <requirement name="HasBuff" buff="元丹境"/>
+			</triggered_effect>			
+		</effect_group>
+		
+		<effect_group>
+		   <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="@FYSH">
+		          <requirement name="HasBuff" buff="元婴境"/>
+		    </triggered_effect>
+            <triggered_effect trigger="onSelfBuffFinish" action="AddBuff" fireOneBuff="true" buff="元婴境,化神境" weights="12,88">
+			            <requirement name="HasBuff" buff="元婴境"/>
+			</triggered_effect>			
+		</effect_group>
+		
+		<effect_group>
+		   <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="@FYSH">
+		          <requirement name="HasBuff" buff="化神境"/>
+		    </triggered_effect>
+            <triggered_effect trigger="onSelfBuffFinish" action="AddBuff" fireOneBuff="true" buff="化神境,炼虚境" weights="15,85">
+			            <requirement name="HasBuff" buff="化神境"/>
+			</triggered_effect>			
+		</effect_group>
+		
+		<effect_group>
+		    <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="@FYSH">
+		          <requirement name="HasBuff" buff="炼虚境"/>
+		    </triggered_effect>
+            <triggered_effect trigger="onSelfBuffFinish" action="AddBuff" fireOneBuff="true" buff="炼虚境,合体境" weights="18,82">
+			            <requirement name="HasBuff" buff="炼虚境"/>
+			</triggered_effect>			
+		</effect_group>
+		<effect_group>
+		    <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="@FYSH">
+		          <requirement name="HasBuff" buff="合体境"/>
+		    </triggered_effect>
+            <triggered_effect trigger="onSelfBuffFinish" action="AddBuff" fireOneBuff="true" buff="合体境,大乘境" weights="20,80">
+			            <requirement name="HasBuff" buff="合体境"/>
+			</triggered_effect>			
+		</effect_group>
+		<effect_group>
+		    <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="@FYSH">
+		          <requirement name="HasBuff" buff="大乘境"/>
+		    </triggered_effect>
+            <triggered_effect trigger="onSelfBuffFinish" action="AddBuff" fireOneBuff="true" buff="大乘境,半神境" weights="25,75">
+			            <requirement name="HasBuff" buff="大乘境"/>
+			</triggered_effect>			
+		</effect_group>
+		<effect_group>
+		    <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="@FYSH">
+		          <requirement name="HasBuff" buff="半神境"/>
+		    </triggered_effect>
+            <triggered_effect trigger="onSelfBuffFinish" action="AddBuff" fireOneBuff="true" buff="半神境,真神境" weights="28,72">
+			            <requirement name="HasBuff" buff="半神境"/>
+			</triggered_effect>			
+		</effect_group>
+		<effect_group>
+		    <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="@FYSH">
+		          <requirement name="HasBuff" buff="真神境"/>
+		    </triggered_effect>
+            <triggered_effect trigger="onSelfBuffFinish" action="AddBuff" fireOneBuff="true" buff="真神境,灵武境" weights="30,70">
+			            <requirement name="HasBuff" buff="真神境"/>
+			</triggered_effect>			
+		</effect_group>
+		<effect_group>
+		    <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="@FYSH">
+		          <requirement name="HasBuff" buff="灵武境"/>
+		    </triggered_effect>
+            <triggered_effect trigger="onSelfBuffFinish" action="AddBuff" fireOneBuff="true" buff="灵武境,神武境" weights="32,68">
+			            <requirement name="HasBuff" buff="灵武境"/>
+			</triggered_effect>			
+		</effect_group>
+		<effect_group>
+		    <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="@FYSH">
+		          <requirement name="HasBuff" buff="神武境"/>
+		    </triggered_effect>
+            <triggered_effect trigger="onSelfBuffFinish" action="AddBuff" fireOneBuff="true" buff="神武境,地阴境" weights="34,66">
+			            <requirement name="HasBuff" buff="神武境"/>
+			</triggered_effect>			
+		</effect_group>
+		<effect_group>
+		    <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="@FYSH">
+		          <requirement name="HasBuff" buff="地阴境"/>
+		    </triggered_effect>
+            <triggered_effect trigger="onSelfBuffFinish" action="AddBuff" fireOneBuff="true" buff="地阴境,天阳境" weights="38,62">
+			            <requirement name="HasBuff" buff="地阴境"/>
+			</triggered_effect>			
+		</effect_group>
+		<effect_group>
+		    <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="@FYSH">
+		          <requirement name="HasBuff" buff="天阳境"/>
+		    </triggered_effect>
+            <triggered_effect trigger="onSelfBuffFinish" action="AddBuff" fireOneBuff="true" buff="天阳境,生死境" weights="40,60">
+			            <requirement name="HasBuff" buff="天阳境"/>
+			</triggered_effect>			
+		</effect_group>
+		<effect_group>
+		    <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="@FYSH">
+		          <requirement name="HasBuff" buff="生死境"/>
+		    </triggered_effect>
+            <triggered_effect trigger="onSelfBuffFinish" action="AddBuff" fireOneBuff="true" buff="生死境,涅槃境" weights="42,58">
+			            <requirement name="HasBuff" buff="生死境"/>
+			</triggered_effect>			
+		</effect_group>
+		<effect_group>
+		    <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="@FYSH">
+		          <requirement name="HasBuff" buff="涅槃境"/>
+		    </triggered_effect>
+            <triggered_effect trigger="onSelfBuffFinish" action="AddBuff" fireOneBuff="true" buff="涅槃境,散仙" weights="45,55">
+			            <requirement name="HasBuff" buff="涅槃境"/>
+			</triggered_effect>			
+		</effect_group>
+
+		<effect_group>
+		    <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="@FYSH">
+		          <requirement name="HasBuff" buff="散仙"/>
+		    </triggered_effect>
+            <triggered_effect trigger="onSelfBuffFinish" action="AddBuff" buff="感知">
+			            <requirement name="HasBuff" buff="散仙"/>
+						<requirement name="CVarCompare" cvar="FYCS" operation="GTE" value="0"/><!--大于等于0-->
+						<requirement name="CVarCompare" cvar="FYCS" operation="LTE" value="4"/><!--小于等于7-->
+			</triggered_effect>	
+            <triggered_effect trigger="onSelfBuffFinish" action="ModifyCVar" cvar="FYCS" operation="add" value="1">
+                                  <requirement name="CVarCompare" cvar="FYCS" operation="GTE" value="0"/><!--大于等于0-->
+								  <requirement name="CVarCompare" cvar="FYCS" operation="LTE" value="4"/><!--小于等于7-->
+								  <requirement name="HasBuff" buff="散仙"/>
+			</triggered_effect>	
+            <triggered_effect trigger="onSelfBuffFinish" action="AddBuff" buff="真仙">
+			             <requirement name="CVarCompare" cvar="FYCS" operation="GTE" value="5"/><!--大于等于0-->
+						 <requirement name="HasBuff" buff="散仙"/>
+			</triggered_effect>					
+		</effect_group>
+		
+		<effect_group>
+		    <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="@FYSH">
+		          <requirement name="HasBuff" buff="散仙"/>
+		    </triggered_effect>
+            <triggered_effect trigger="onSelfBuffFinish" action="AddBuff" fireOneBuff="true" buff="散仙,真仙" weights="70,30">
+			            <requirement name="HasBuff" buff="散仙"/>
+			</triggered_effect>			
+		</effect_group>
+	</buff>
+
+	
+      <buff name="感知" name_key="[00FFFF]感知" description_key="感知Desc" tooltip_key="[00FFFF]感知" icon="ui_game_symbol_intellect" icon_color="0,255,255" hidden="false" remove_on_death="false">
+
+		<stack_type value="ignore"/>
+		<duration value="0"/>
+		<effect_group>
+		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,元丹境,筑基境,元婴境,化神境,炼虚境,合体境,大乘境,半神境,真神境,灵武境,神武境,地阴境,天阳境,生死境,涅槃境,散仙,真仙"/><!--在自身开始删除所有buff-->
+		   <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="1"/>
+		   <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="0.1"/>
+		   
+		    <passive_effect name="HealthMax" operation="base_add" value="2"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="2"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="2"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="2"/><!-- 最大食物份值 -->
+				
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.02"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.02" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.02"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.02"/> 
+				
+				<passive_effect name="EntityDamage" operation="perc_add" value=".02" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".02" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".02" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".02" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+          
+		</effect_group>
+	</buff>
+	
+	<buff name="大道重生" name_key="[FFFF00]大道轮回" description_key="重生轮回Desc" tooltip_key="[FFFF00]大道轮回，最高轮回次数为，当轮回次数为5时进入最终境界！" icon="ui_game_symbol_intellect" icon_color="255,255,0" hidden="false" remove_on_death="false">
+		<stack_type value="ignore"/>
+		<duration value="0"/>
+		<display_value value="FYCS"/>
+		<display_value_key value="[00FFFF]轮回次数[FFFFFF]:[FFFF00]{0}[FFFFFF]"/>
+		<effect_group>
+		      <passive_effect name="HealthMax" operation="base_add" target="self" value="100">
+			        <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="1"/><!--等于-->
+			  </passive_effect>
+			  <passive_effect name="AttacksPerMinute" operation="perc_add" value=".5">
+			          <requirement name="CVarCompare" cvar="FYCS" operation="GTE" value="1"/><!--等于-->
+			  </passive_effect>
+			  
+			  
+			  <passive_effect name="HarvestCount" operation="perc_add" value="1" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest">
+			           <requirement name="CVarCompare" cvar="FYCS" operation="GTE" value="2"/><!--等于-->
+			  </passive_effect>
+			  <passive_effect name="HealthMax" operation="base_add" target="self" value="200">
+			        <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="2"/><!--等于-->
+			  </passive_effect>
+			  
+			  
+			  <passive_effect name="HealthMax" operation="base_add" target="self" value="300">
+			        <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="3"/><!--等于-->
+			  </passive_effect>
+			  <passive_effect name="EntityDamage" operation="perc_add" value="1" tags="melee">
+			         <requirement name="CVarCompare" cvar="FYCS" operation="GTE" value="3"/><!--等于-->
+			  </passive_effect>
+			  
+			  <passive_effect name="HealthMax" operation="base_add" target="self" value="400">
+			        <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="4"/><!--等于-->
+			  </passive_effect>
+			  <passive_effect name="EntityDamage" operation="perc_add" value="1" tags="gun">
+			          <requirement name="CVarCompare" cvar="FYCS" operation="GTE" value="4"/><!--等于-->
+			  </passive_effect>
+			  
+			  <passive_effect name="HealthMax" operation="base_add" target="self" value="500">
+			        <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="5"/><!--等于-->
+			  </passive_effect>
+			  <passive_effect name="JumpStrength" operation="perc_add" value="1"><!-- 跳跃高度 -->
+			            <requirement name="CVarCompare" cvar="FYCS" operation="GTE" value="5"/><!--等于-->
+			  </passive_effect>
+			  <!--后续需要自己写，前提是先把最后境界的值改动-->
+		     
+			
+		</effect_group>
+	</buff>
+	
+   <buff name="筑基境" name_key="[00FFFF]筑基境" description_key="筑基境Desc" tooltip_key="[00FFFF]筑基境" icon="ui_game_symbol_intellect" icon_color="0,255,255" hidden="false" remove_on_death="false">
+
+		<stack_type value="ignore"/>
+		<duration value="0"/>
+		<effect_group>
+		     <triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,感知,元丹境,元婴境,化神境,炼虚境,合体境,大乘境,半神境,真神境,灵武境,神武境,地阴境,天阳境,生死境,涅槃境,散仙,真仙"/><!--在自身开始删除所有buff-->
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.9"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="0.2"/>
+			
+			
+			<passive_effect name="HealthMax" operation="base_add" value="5"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="5"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="5"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="5"/><!-- 最大食物份值 -->
+				
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.02"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.02" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.02"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.02"/> 
+				
+				<passive_effect name="EntityDamage" operation="perc_add" value=".02" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".02" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".02" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".02" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+				
+				
+				<triggered_effect trigger="onSelfRespawn" action="AddBuff"  target="self" buff="感知"/>
+				
+							
+			
+		</effect_group>
+	</buff>
+	<buff name="元丹境" name_key="[00FFFF]元丹境" description_key="元丹境Desc" tooltip_key="[00FFFF]元丹境" icon="ui_game_symbol_intellect" icon_color="0,255,255" hidden="false" remove_on_death="false">
+
+		<stack_type value="ignore"/>
+		<duration value="0"/>
+		<effect_group>
+		 <triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,感知,筑基境,元婴境,化神境,炼虚境,合体境,大乘境,半神境,真神境,灵武境,神武境,地阴境,天阳境,生死境,涅槃境,散仙,真仙"/><!--在自身开始删除所有buff-->
+		   <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.85"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="0.5"/>
+			
+		   <passive_effect name="HealthMax" operation="base_add" value="8"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="8"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="8"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="8"/><!-- 最大食物份值 -->
+				
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.02"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.02" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.02"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.02"/> 
+				
+				<passive_effect name="EntityDamage" operation="perc_add" value=".02" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".02" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".02" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".02" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+				
+
+				
+				<triggered_effect trigger="onSelfRespawn" action="AddBuff"  target="self" buff="筑基境"/>
+				    
+				
+                        
+			
+		</effect_group>
+	</buff>
+	<buff name="元婴境" name_key="[00FFFF]元婴境" description_key="元婴境Desc" tooltip_key="[00FFFF]元婴境" icon="ui_game_symbol_intellect" icon_color="0,255,255" hidden="false" remove_on_death="false">
+
+		<stack_type value="ignore"/>
+		<duration value="0"/>
+		<effect_group>
+		 <triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,感知,筑基境,元丹境,化神境,炼虚境,合体境,大乘境,半神境,真神境,灵武境,神武境,地阴境,天阳境,生死境,涅槃境,散仙,真仙"/><!--在自身开始删除所有buff-->
+		     <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.8"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="0.7"/>
+			 
+			 <passive_effect name="HealthMax" operation="base_add" value="10"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="10"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="10"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="10"/><!-- 最大食物份值 -->
+				
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.03"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.03" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.03"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.03"/> 
+				
+				<passive_effect name="EntityDamage" operation="perc_add" value=".03" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".03" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".03" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".03" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+
+				
+				<triggered_effect trigger="onSelfRespawn" action="AddBuff"  target="self" buff="元丹境"/> 
+				     
+				
+			               
+		</effect_group>
+	</buff>
+	<buff name="化神境" name_key="[00FFFF]化神境" description_key="化神境Desc" tooltip_key="[00FFFF]化神境" icon="ui_game_symbol_intellect" icon_color="0,255,255" hidden="false" remove_on_death="false">
+
+		<stack_type value="ignore"/>
+		<duration value="0"/>
+		<effect_group>
+		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,感知,筑基境,元丹境,元婴境,炼虚境,合体境,大乘境,半神境,真神境,灵武境,神武境,地阴境,天阳境,生死境,涅槃境,散仙,真仙"/><!--在自身开始删除所有buff-->
+           <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.75"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="1"/>		  
+
+		  <passive_effect name="HealthMax" operation="base_add" value="12"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="12"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="12"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="12"/><!-- 最大食物份值 -->
+				
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.04"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.04" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.04"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.04"/> 
+				
+				<passive_effect name="EntityDamage" operation="perc_add" value=".04" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".04" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".04" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".04" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+				<triggered_effect trigger="onSelfRespawn" action="AddBuff"  target="self" buff="元婴境"/> 
+			
+		</effect_group>
+	</buff>
+	<buff name="炼虚境" name_key="[00FFFF]炼虚境" description_key="炼虚境Desc" tooltip_key="[00FFFF]炼虚境" icon="ui_game_symbol_intellect" icon_color="0,255,255" hidden="false" remove_on_death="false">
+
+		<stack_type value="ignore"/>
+		<duration value="0"/>
+		<effect_group>
+		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,感知,筑基境,元丹境,元婴境,化神境,合体境,大乘境,半神境,真神境,灵武境,神武境,地阴境,天阳境,生死境,涅槃境,散仙,真仙"/><!--在自身开始删除所有buff-->
+		     <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.7"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="1.2"/>
+			 
+			 <passive_effect name="HealthMax" operation="base_add" value="15"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="15"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="15"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="15"/><!-- 最大食物份值 -->
+				
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.05"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.05" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.05"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.05"/> 
+				
+				<passive_effect name="EntityDamage" operation="perc_add" value=".05" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".05" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".05" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".05" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+				
+
+				<triggered_effect trigger="onSelfRespawn" action="AddBuff"  target="self" buff="化神境"/> 
+			
+		</effect_group>
+	</buff>
+	<buff name="合体境" name_key="[00FFFF]合体境" description_key="合体境Desc" tooltip_key="[00FFFF]合体境" icon="ui_game_symbol_intellect" icon_color="0,255,255" hidden="false" remove_on_death="false">
+
+		<stack_type value="ignore"/>
+		<duration value="0"/>
+		<effect_group>
+		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,感知,筑基境,元丹境,元婴境,化神境,炼虚境,大乘境,半神境,真神境,灵武境,神武境,地阴境,天阳境,生死境,涅槃境,散仙,真仙"/><!--在自身开始删除所有buff-->
+		     <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.65"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="1.4"/>
+			 
+			 <passive_effect name="HealthMax" operation="base_add" value="18"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="18"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="18"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="18"/><!-- 最大食物份值 -->
+				
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.08"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.08" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.08"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.08"/> 
+				
+				<passive_effect name="EntityDamage" operation="perc_add" value=".08" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".08" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".08" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".08" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+				
+				<triggered_effect trigger="onSelfRespawn" action="AddBuff"  target="self" buff="炼虚境"/> 
+			
+		</effect_group>
+	</buff>
+	<buff name="大乘境" name_key="[00FFFF]大乘境" description_key="大乘境Desc" tooltip_key="[00FFFF]大乘境" icon="ui_game_symbol_intellect" icon_color="0,255,255" hidden="false" remove_on_death="false">
+
+		<stack_type value="ignore"/>
+		<duration value="0"/>
+		<effect_group>
+		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,感知,筑基境,元丹境,元婴境,化神境,炼虚境,合体境,半神境,真神境,灵武境,神武境,地阴境,天阳境,生死境,涅槃境,散仙,真仙"/><!--在自身开始删除所有buff-->
+		   <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.6"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="1.6"/>
+		   
+		   <passive_effect name="HealthMax" operation="base_add" value="20"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="20"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="20"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="20"/><!-- 最大食物份值 -->
+				
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.09"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.09" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.09"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.09"/> 
+				
+				<passive_effect name="EntityDamage" operation="perc_add" value=".09" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".09" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".09" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".09" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+				<triggered_effect trigger="onSelfRespawn" action="AddBuff"  target="self" buff="合体境"/> 
+			
+		</effect_group>
+	</buff>
+	<buff name="半神境" name_key="[00FFFF]半神境" description_key="半神境Desc" tooltip_key="[00FFFF]半神境" icon="ui_game_symbol_intellect" icon_color="0,255,255" hidden="false" remove_on_death="false">
+
+		<stack_type value="ignore"/>
+		<duration value="0"/>
+		<effect_group>
+		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,感知,筑基境,元丹境,元婴境,化神境,炼虚境,合体境,大乘境,真神境,灵武境,神武境,地阴境,天阳境,生死境,涅槃境,散仙,真仙"/><!--在自身开始删除所有buff-->
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.55"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="1.8"/>
+			
+			<passive_effect name="HealthMax" operation="base_add" value="25"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="25"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="25"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="25"/><!-- 最大食物份值 -->
+				
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.15"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.15" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.15"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.15"/> 
+				
+				<passive_effect name="EntityDamage" operation="perc_add" value=".15" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".15" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".15" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".15" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+				<triggered_effect trigger="onSelfRespawn" action="AddBuff"  target="self" buff="大乘境"/> 
+			
+		</effect_group>
+	</buff>
+	<buff name="真神境" name_key="[00FFFF]真神境" description_key="真神境Desc" tooltip_key="[00FFFF]真神境" icon="ui_game_symbol_intellect" icon_color="0,255,255" hidden="false" remove_on_death="false">
+
+		<stack_type value="ignore"/>
+		<duration value="0"/>
+		<effect_group>
+		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,感知,筑基境,元丹境,元婴境,化神境,炼虚境,合体境,大乘境,半神境,灵武境,神武境,地阴境,天阳境,生死境,涅槃境,散仙,真仙"/><!--在自身开始删除所有buff-->
+		   <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.5"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="2"/>
+		   
+		   <passive_effect name="HealthMax" operation="base_add" value="30"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="30"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="30"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="30"/><!-- 最大食物份值 -->
+				
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.16"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.16" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.16"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.16"/> 
+				
+				<passive_effect name="EntityDamage" operation="perc_add" value=".16" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".16" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".16" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".16" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+				<triggered_effect trigger="onSelfRespawn" action="AddBuff"  target="self" buff="半神境"/> 
+			
+		</effect_group>
+	</buff>
+	<buff name="灵武境" name_key="[00FFFF]灵武境" description_key="灵武境Desc" tooltip_key="[00FFFF]灵武境" icon="ui_game_symbol_intellect" icon_color="0,255,255" hidden="false" remove_on_death="false">
+
+		<stack_type value="ignore"/>
+		<duration value="0"/>
+		<effect_group>
+		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,感知,筑基境,元丹境,元婴境,化神境,炼虚境,合体境,大乘境,半神境,真神境,神武境,地阴境,天阳境,生死境,涅槃境,散仙,真仙"/><!--在自身开始删除所有buff-->
+		   <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.45"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="2.4"/>
+		   
+		   <passive_effect name="HealthMax" operation="base_add" value="35"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="35"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="35"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="35"/><!-- 最大食物份值 -->
+				
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.20"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.20" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.20"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.20"/> 
+				
+				<passive_effect name="EntityDamage" operation="perc_add" value=".20" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".20" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".20" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".20" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+				<triggered_effect trigger="onSelfRespawn" action="AddBuff"  target="self" buff="真神境"/> 
+			
+		</effect_group>
+	</buff>
+	<buff name="神武境" name_key="[00FFFF]神武境" description_key="神武境Desc" tooltip_key="[00FFFF]神武境" icon="ui_game_symbol_intellect" icon_color="0,255,255" hidden="false" remove_on_death="false">
+
+		<stack_type value="ignore"/>
+		<duration value="0"/>
+		<effect_group>
+		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,感知,筑基境,元丹境,元婴境,化神境,炼虚境,合体境,大乘境,半神境,真神境,灵武境,地阴境,天阳境,生死境,涅槃境,散仙,真仙"/><!--在自身开始删除所有buff-->
+		   <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.4"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="2.8"/>
+		   
+		   <passive_effect name="HealthMax" operation="base_add" value="40"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="40"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="40"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="40"/><!-- 最大食物份值 -->
+				
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.15"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.25" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.25"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.25"/> 
+				
+				<passive_effect name="EntityDamage" operation="perc_add" value=".25" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".25" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".25" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".25" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+				<triggered_effect trigger="onSelfRespawn" action="AddBuff"  target="self" buff="灵武境"/> 
+			
+		</effect_group>
+	</buff>
+	<buff name="地阴境" name_key="[00FFFF]地阴境" description_key="地阴境Desc" tooltip_key="[00FFFF]地阴境" icon="ui_game_symbol_intellect" icon_color="0,255,255" hidden="false" remove_on_death="false">
+
+		<stack_type value="ignore"/>
+		<duration value="0"/>
+		<effect_group>
+		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,感知,筑基境,元丹境,元婴境,化神境,炼虚境,合体境,大乘境,半神境,真神境,灵武境,神武境,天阳境,生死境,涅槃境,散仙,真仙"/><!--在自身开始删除所有buff-->
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.35"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="3.2"/>
+			
+			<passive_effect name="HealthMax" operation="base_add" value="50"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="50"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="50"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="50"/><!-- 最大食物份值 -->
+				
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.10"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.30" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.30"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.30"/> 
+				
+				<passive_effect name="EntityDamage" operation="perc_add" value=".30" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".30" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".30" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".30" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+				<triggered_effect trigger="onSelfRespawn" action="AddBuff"  target="self" buff="神武境"/> 
+			
+		</effect_group>
+	</buff>
+	<buff name="天阳境" name_key="[00FFFF]天阳境" description_key="天阳境Desc" tooltip_key="[00FFFF]天阳境" icon="ui_game_symbol_intellect" icon_color="0,255,255" hidden="false" remove_on_death="false">
+
+		<stack_type value="ignore"/>
+		<duration value="0"/>
+		<effect_group>
+		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,感知,筑基境,元丹境,元婴境,化神境,炼虚境,合体境,大乘境,半神境,真神境,灵武境,神武境,地阴境,生死境,涅槃境,散仙,真仙"/><!--在自身开始删除所有buff-->
+		     <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.34"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="3.6"/>
+			 
+			 <passive_effect name="HealthMax" operation="base_add" value="60"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="60"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="60"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="60"/><!-- 最大食物份值 -->
+				
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.5"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.35" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.35"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.35"/> 
+				
+				<passive_effect name="EntityDamage" operation="perc_add" value=".35" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".35" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".35" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".35" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+				<triggered_effect trigger="onSelfRespawn" action="AddBuff"  target="self" buff="地阴境"/> 
+			
+		</effect_group>
+	</buff>
+	<buff name="生死境" name_key="[00FFFF]生死境" description_key="生死境Desc" tooltip_key="[00FFFF]生死境" icon="ui_game_symbol_intellect" icon_color="0,255,255" hidden="false" remove_on_death="false">
+
+		<stack_type value="ignore"/>
+		<duration value="0"/>
+		<effect_group>
+		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,感知,筑基境,元丹境,元婴境,化神境,炼虚境,合体境,大乘境,半神境,真神境,灵武境,神武境,地阴境,天阳境,涅槃境,散仙,真仙"/><!--在自身开始删除所有buff-->
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.32"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="4"/>
+			
+			<passive_effect name="HealthMax" operation="base_add" value="70"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="70"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="70"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="70"/><!-- 最大食物份值 -->
+				
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.10"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.40" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.40"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.40"/> 
+				
+				<passive_effect name="EntityDamage" operation="perc_add" value=".40" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".40" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".40" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".40" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+				<triggered_effect trigger="onSelfRespawn" action="AddBuff"  target="self" buff="天阳境"/> 
+			
+		</effect_group>
+	</buff>
+	<buff name="涅槃境" name_key="[00FFFF]涅槃境" description_key="涅槃境Desc" tooltip_key="[00FFFF]涅槃境" icon="ui_game_symbol_intellect" icon_color="0,255,255" hidden="false" remove_on_death="false">
+
+		<stack_type value="ignore"/>
+		<duration value="0"/>
+		<effect_group>
+		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,感知,筑基境,元丹境,元婴境,化神境,炼虚境,合体境,大乘境,半神境,真神境,灵武境,神武境,地阴境,天阳境,生死境,散仙,真仙"/><!--在自身开始删除所有buff-->
+		   <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.3"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="4.4"/>
+		   
+		   <passive_effect name="HealthMax" operation="base_add" value="80"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="80"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="80"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="80"/><!-- 最大食物份值 -->
+				
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.15"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.45" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.45"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.45"/> 
+				
+				<passive_effect name="EntityDamage" operation="perc_add" value=".45" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".45" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".45" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".45" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+				<triggered_effect trigger="onSelfRespawn" action="AddBuff"  target="self" buff="生死境"/> 
+			
+		</effect_group>
+	</buff>
+	<buff name="散仙" name_key="[FFCCFF]散仙" description_key="散仙Desc" tooltip_key="[00FFFF]散仙" icon="ui_game_symbol_intellect" icon_color="0,255,255" hidden="false" remove_on_death="false">
+
+		<stack_type value="ignore"/>
+		<duration value="0"/>
+		<effect_group>
+		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,感知,筑基境,元丹境,元婴境,化神境,炼虚境,合体境,大乘境,半神境,真神境,灵武境,神武境,地阴境,天阳境,生死境,涅槃境,真仙"/><!--在自身开始删除所有buff-->
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.28"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="4.8"/>
+			
+			<passive_effect name="HealthMax" operation="base_add" value="90"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="90"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="90"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="90"/><!-- 最大食物份值 -->
+				
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.10"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.50" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.50"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.50"/> 
+				
+				<passive_effect name="EntityDamage" operation="perc_add" value=".50" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".50" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".50" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".50" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+				<triggered_effect trigger="onSelfRespawn" action="AddBuff"  target="self" buff="涅槃境"/> 
+			
+		</effect_group>
+	</buff>
+	<buff name="真仙" name_key="[FFCCFF]真仙" description_key="真仙Desc" tooltip_key="[00FFFF]真仙" icon="ui_game_symbol_intellect" icon_color="0,255,255" hidden="false" remove_on_death="false">
+
+		<stack_type value="ignore"/>
+		<duration value="0"/>
+		<effect_group>
+		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,感知,筑基境,元丹境,元婴境,化神境,炼虚境,合体境,大乘境,半神境,真神境,灵武境,神武境,地阴境,天阳境,生死境,涅槃境,散仙"/><!--在自身开始删除所有buff-->
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.25"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="5.2"/>
+			
+			<passive_effect name="HealthMax" operation="base_add" value="100"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="100"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="100"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="100"/><!-- 最大食物份值 -->
+				
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.15"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.55" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.55"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.55"/> 
+				
+				<passive_effect name="EntityDamage" operation="perc_add" value=".55" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".55" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".55" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".55" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+				<triggered_effect trigger="onSelfRespawn" action="AddBuff"  target="self" buff="散仙"/> 
+			
+		</effect_group>
+	</buff>
+
+	<buff name="恢复药水" name_key="[FFFF00]恢复药水" description_key="[FFFF00]恢复药水:持续恢复生命+100，持续60s。" icon="ui_game_symbol_add" hidden="false" remove_on_death="true" icon_color="255,255,0">
+			<stack_type value="ignore"/>
+			<duration value="60"/>
+			<effect_group>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="add" value="100"/>
+				<triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Stamina" operation="add" value="100"/>
+				
+			</effect_group>
+	</buff>
+		
+
+
+		
+	</append>
+</fengye>
