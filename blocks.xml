@@ -1,0 +1,282 @@
+<Sorcery>
+
+	<append xpath="/blocks">
+
+
+		<!-- BUSH: FIRE BUSH ______________________________________-->
+		<!-- WILD: Fire Bush -->
+		<block name="tree_EssenceFire">
+			<property name="Extends" value="plantedYucca3Harvest"/>
+			<property name="CreativeMode" value="Player"/>
+			<drop event="Destroy" name="terrStone" count="1" prob=".02"/>
+			<property name="DisplayInfo" value="Name"/>
+		</block>
+
+
+		<!-- BUSH: ICE BUSH ______________________________________-->
+		<!-- WILD: Ice Bush -->
+		<block name="tree_EssenceIce">
+			<property name="Extends" value="plantedYucca3Harvest"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="tree_EssenceIce"/>
+			<drop event="Destroy" name="terrStone" count="100,120" tag="essenceIceHarvest"/>
+			<property name="DisplayInfo" value="Name"/>
+		</block>
+
+
+		<!-- BUSH: LIGHTNING BUSH ______________________________________-->
+		<!-- WILD: Lightning Bush -->
+		<block name="tree_EssenceLightning">
+			<property name="Extends" value="plantedYucca3Harvest"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="tree_EssenceLightning"/>
+			<drop event="Destroy" name="terrStone" count="100,120" tag="essenceLightningHarvest"/>
+			<property name="DisplayInfo" value="Name"/>
+		</block>
+
+
+
+		<!-- NOTE: buffSorceryManage: SHRINE MANAGE -->
+		<!-- ARCANE SHRINE: POTION -->
+		<block name="shrinePotion">
+			<property name="Extends" value="stalagmite04"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="stalagmite04"/>
+			<property name="DisplayInfo" value="Name"/>
+			<drop event="Destroy" name="普通灵石"  count="20,100" tag="基础物资Harvest"/>
+			<drop event="Destroy" name="金灵石"  count="0,5" prob="0.3" tag="基础物资Harvest"/>
+			<drop event="Destroy" name="木灵石"  count="0,5" prob="0.3" tag="基础物资Harvest"/>
+			<drop event="Destroy" name="水灵石"  count="0,5" prob="0.3" tag="基础物资Harvest"/>
+			<drop event="Destroy" name="火灵石"  count="0,5" prob="0.3" tag="基础物资Harvest"/>
+			<drop event="Destroy" name="土灵石"  count="0,5" prob="0.3" tag="基础物资Harvest"/>
+		</block>
+
+		<block name="灵石矿">
+			<property name="Extends" value="stalagmite04"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="stalagmite04"/>
+			<property name="DisplayInfo" value="Name"/>
+			<drop event="Destroy" name="普通灵石"  count="20,100" tag="基础物资Harvest"/>
+			<drop event="Destroy" name="金灵石"  count="0,5" prob="0.3" tag="基础物资Harvest"/>
+			<drop event="Destroy" name="木灵石"  count="0,5" prob="0.3" tag="基础物资Harvest"/>
+			<drop event="Destroy" name="水灵石"  count="0,5" prob="0.3" tag="基础物资Harvest"/>
+			<drop event="Destroy" name="火灵石"  count="0,5" prob="0.3" tag="基础物资Harvest"/>
+			<drop event="Destroy" name="土灵石"  count="0,5" prob="0.3" tag="基础物资Harvest"/>
+		</block>
+
+
+		<!--  金系药矿 咖啡 废墟-->
+		<block name="黑天麻">
+			<property name="Extends" value="plantedYucca3Harvest"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="plantedYucca3Harvest"/>
+			<property name="DisplayInfo" value="Name"/>
+			<drop event="Destroy" name="丹灵浆"  count="0,5" prob="0.5" tag="初级丹药Harvest"/>
+			<drop event="Destroy" name="幻心草"  count="0,5" prob="0.1" tag="初级丹药Harvest"/>
+			<drop event="Destroy" name="跌打草"  count="0,5" prob="0.1" tag="初级丹药Harvest"/>
+			<drop event="Destroy" name="魔皇草"  count="0,5" prob="0.1" tag="中级丹药Harvest"/>
+			<drop event="Destroy" name="皇血草"  count="0,5" prob="0.1" tag="中级丹药Harvest"/>
+			<drop event="Destroy" name="金妖果"  count="0,5" prob="0.1" tag="中级丹药Harvest"/>
+			<drop event="Destroy" name="寒灵幽魂花"  count="0,5" prob="0.1" tag="高级丹药Harvest"/>
+			<drop event="Destroy" name="煌炎血心芝"  count="0,5" prob="0.1" tag="高级丹药Harvest"/>
+			<drop event="Destroy" name="魂婴果"  count="0,5" prob="0.1" tag="高级丹药Harvest"/>
+		</block>
+
+		<!-- 废墟——金系铁矿——乌金矿 -->
+		<block name="乌金矿">
+			<property name="Extends" value="stalagmite04"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="stalagmite04"/>
+			<property name="DisplayInfo" value="Name"/>
+			<drop event="Destroy" name="陨铁铁矿"  count="1,2" prob="0.3" tag="初级采矿Harvest"/>
+			<drop event="Destroy" name="百炼星"  count="1,2" prob="0.3" tag="初级采矿Harvest"/>
+			<drop event="Destroy" name="精金"  count="1,2" prob="0.3" tag="初级采矿Harvest"/>
+			<drop event="Destroy" name="发晶"  count="1,2" prob="0.3" tag="中级采矿Harvest"/>
+			<drop event="Destroy" name="星钢岩"  count="1,2" prob="0.3" tag="中级采矿Harvest"/>
+			<drop event="Destroy" name="星纹钢"  count="1,2" prob="0.3" tag="中级采矿Harvest"/>
+			<drop event="Destroy" name="三星石"  count="1,2" prob="0.3" tag="高级采矿Harvest"/>
+			<drop event="Destroy" name="金铁兰"  count="1,2" prob="0.3" tag="高级采矿Harvest"/>
+			<drop event="Destroy" name="空冥石"  count="1,2" prob="0.3" tag="高级采矿Harvest"/>
+		</block>
+
+
+
+		<!-- 木系药矿 丝兰果  绿地-->
+		<block name="青灵藤">
+			<property name="Extends" value="plantedYucca3Harvest"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="plantedYucca3Harvest"/>
+			<property name="DisplayInfo" value="Name"/>
+			<drop event="Destroy" name="青灵木"  count="1,2" prob="0.3" tag="初级丹药Harvest"/>
+			<drop event="Destroy" name="铁藤果"  count="1,2" prob="0.3" tag="初级丹药Harvest"/>
+			<drop event="Destroy" name="灵芝"  count="1,2" prob="0.3" tag="初级丹药Harvest"/>
+			<drop event="Destroy" name="血灵木"  count="1,2" prob="0.3" tag="中级丹药Harvest"/>
+			<drop event="Destroy" name="饮血果"  count="1,2" prob="0.3" tag="中级丹药Harvest"/>
+			<drop event="Destroy" name="血灵芝"  count="1,2" prob="0.3" tag="中级丹药Harvest"/>
+			<drop event="Destroy" name="九转噬魂木"  count="1,2" prob="0.3" tag="高级丹药Harvest"/>
+			<drop event="Destroy" name="噬魂果"  count="1,2" prob="0.3" tag="高级丹药Harvest"/>
+			<drop event="Destroy" name="养神芝"  count="1,2" prob="0.3" tag="高级丹药Harvest"/>
+		</block>
+
+		<!-- 木系铁矿—绿地———天青石矿 -->
+		<block name="天青石矿">
+			<property name="Extends" value="stalagmite04"/>
+			<property name="CustomIconTint" value="FFFF00"/>
+			<property name="CustomIcon" value="stalagmite04"/>
+			<property name="DisplayInfo" value="Name"/>
+			<drop event="Destroy" name="秘银"  count="1,2" prob="0.3" tag="初级采矿Harvest"/>
+			<drop event="Destroy" name="翡翠宝矿"  count="1,2" prob="0.3" tag="初级采矿Harvest"/>
+			<drop event="Destroy" name="青冥石"  count="1,2" prob="0.3" tag="初级采矿Harvest"/>
+			<drop event="Destroy" name="青铜铁"  count="1,2" prob="0.3" tag="中级采矿Harvest"/>
+			<drop event="Destroy" name="青妖石"  count="1,2" prob="0.3" tag="中级采矿Harvest"/>
+			<drop event="Destroy" name="血灵矿"  count="1,2" prob="0.3" tag="中级采矿Harvest"/>
+			<drop event="Destroy" name="千年温玉"  count="1,2" prob="0.3" tag="高级采矿Harvest"/>
+			<drop event="Destroy" name="噬魂石"  count="1,2" prob="0.3" tag="高级采矿Harvest"/>
+			<drop event="Destroy" name="不死树"  count="1,2" prob="0.3" tag="高级采矿Harvest"/>
+		</block>
+
+		<!-- 水系药矿 秋麒麟花 雪地 -->
+		<block name="雪莲子">
+			<property name="Extends" value="plantedYucca3Harvest"/>
+			<property name="CreativeMode" value="Player"/>
+			<property name="CustomIcon" value="plantedYucca3Harvest"/>
+			<property name="DisplayInfo" value="Name"/>
+			<drop event="Destroy" name="雪莲"  count="1,2" prob="0.3" tag="初级丹药Harvest"/>
+			<drop event="Destroy" name="冰晶石"  count="1,2" prob="0.3" tag="初级丹药Harvest"/>
+			<drop event="Destroy" name="碧水果"  count="1,2" prob="0.3" tag="初级丹药Harvest"/>
+			<drop event="Destroy" name="雪莲花"  count="1,2" prob="0.3" tag="中级丹药Harvest"/>
+			<drop event="Destroy" name="冰晶体"  count="1,2" prob="0.3" tag="中级丹药Harvest"/>
+			<drop event="Destroy" name="灵烛果"  count="1,2" prob="0.3" tag="中级丹药Harvest"/>
+			<drop event="Destroy" name="天山雪莲"  count="1,2" prob="0.3" tag="高级丹药Harvest"/>
+			<drop event="Destroy" name="玉如意"  count="1,2" prob="0.3" tag="高级丹药Harvest"/>
+			<drop event="Destroy" name="冰晶雪参"  count="1,2" prob="0.3" tag="高级丹药Harvest"/>
+		</block>
+
+		<!-- 水系铁矿—雪地———寒铁 -->
+		<block name="寒铁">
+			<property name="Extends" value="stalagmite04"/>
+			<property name="CustomIconTint" value="FFFF00"/>
+			<property name="CustomIcon" value="stalagmite04"/>
+			<property name="DisplayInfo" value="Name"/>
+			<drop event="Destroy" name="广寒铁"  count="1,2" prob="0.3" tag="初级采矿Harvest"/>
+			<drop event="Destroy" name="冰晶石"  count="1,2" prob="0.3" tag="初级采矿Harvest"/>
+			<drop event="Destroy" name="玄海冰魄"  count="1,2" prob="0.3" tag="初级采矿Harvest"/>
+			<drop event="Destroy" name="雪精矿"  count="1,2" prob="0.3" tag="中级采矿Harvest"/>
+			<drop event="Destroy" name="冰玄石"  count="1,2" prob="0.3" tag="中级采矿Harvest"/>
+			<drop event="Destroy" name="玄阴铁"  count="1,2" prob="0.3" tag="中级采矿Harvest"/>
+			<drop event="Destroy" name="冰魄寒晶"  count="1,2" prob="0.3" tag="高级采矿Harvest"/>
+			<drop event="Destroy" name="铁岭矿母"  count="1,2" prob="0.3" tag="高级采矿Harvest"/>
+			<drop event="Destroy" name="深海髓银"  count="1,2" prob="0.3" tag="高级采矿Harvest"/>
+		</block>
+
+
+		<!--  火系药矿 棉花  火烧-->
+		<block name="火阳果">
+			<property name="Extends" value="stalagmite04"/>
+			<property name="CustomIconTint" value="FFFF00"/>
+			<property name="CustomIcon" value="stalagmite04"/>
+			<property name="DisplayInfo" value="Name"/>
+			<drop event="Destroy" name="火龙果"  count="1,2" prob="0.3" tag="初级丹药Harvest"/>
+			<drop event="Destroy" name="火烧木"  count="1,2" prob="0.3" tag="初级丹药Harvest"/>
+			<drop event="Destroy" name="熔岩草"  count="1,2" prob="0.3" tag="初级丹药Harvest"/>
+			<drop event="Destroy" name="赤炎果"  count="1,2" prob="0.3" tag="中级丹药Harvest"/>
+			<drop event="Destroy" name="火灵参"  count="1,2" prob="0.3" tag="中级丹药Harvest"/>
+			<drop event="Destroy" name="岩浆木"  count="1,2" prob="0.3" tag="中级丹药Harvest"/>
+			<drop event="Destroy" name="龙阳果"  count="1,2" prob="0.3" tag="高级丹药Harvest"/>
+			<drop event="Destroy" name="龙养木"  count="1,2" prob="0.3" tag="高级丹药Harvest"/>
+			<drop event="Destroy" name="龙涎香"  count="1,2" prob="0.3" tag="高级丹药Harvest"/>
+		</block>
+
+		<!-- —火系铁矿—火烧地——赤炎之心 -->
+		<block name="赤炎之心">
+			<property name="Extends" value="emberPileDeco2"/>
+			<property name="CustomIconTint" value="FFFF00"/>
+			<property name="CustomIcon" value="emberPileDeco2"/>
+			<property name="DisplayInfo" value="Name"/>
+			<drop event="Destroy" name="熔岩精矿"  count="1,2" prob="0.3" tag="初级采矿Harvest"/>
+			<drop event="Destroy" name="黑石矿"  count="1,2" prob="0.3" tag="初级采矿Harvest"/>
+			<drop event="Destroy" name="熔岩晶矿"  count="1,2" prob="0.3" tag="初级采矿Harvest"/>
+			<drop event="Destroy" name="赤炎石"  count="1,2" prob="0.3" tag="中级采矿Harvest"/>
+			<drop event="Destroy" name="陨星铁"  count="1,2" prob="0.3" tag="中级采矿Harvest"/>
+			<drop event="Destroy" name="岩浆铁"  count="1,2" prob="0.3" tag="中级采矿Harvest"/>
+			<drop event="Destroy" name="龙血矿"  count="1,2" prob="0.3" tag="高级采矿Harvest"/>
+			<drop event="Destroy" name="石中焱炽铁"  count="1,2" prob="0.3" tag="高级采矿Harvest"/>
+			<drop event="Destroy" name="乌云黑矿"  count="1,2" prob="0.3" tag="高级采矿Harvest"/>
+		</block>
+
+
+
+		<!-- 土系药矿 玉米  沙漠-->
+		<block name="黄泉晶">
+			<property name="Extends" value="plantedGraceCorn3Harvest"/>
+			<property name="CustomIconTint" value="FFFF00"/>
+			<property name="CustomIcon" value="plantedGraceCorn3Harvest"/>
+			<property name="DisplayInfo" value="Name"/>
+			<drop event="Destroy" name="黄泉果"  count="1,2" prob="0.3" tag="初级丹药Harvest"/>
+			<drop event="Destroy" name="沙漠之水"  count="1,2" prob="0.3" tag="初级丹药Harvest"/>
+			<drop event="Destroy" name="漠之虫"  count="1,2" prob="0.3" tag="初级丹药Harvest"/>
+			<drop event="Destroy" name="黄泉妖果"  count="1,2" prob="0.3" tag="中级丹药Harvest"/>
+			<drop event="Destroy" name="沙漠之泉"  count="1,2" prob="0.3" tag="中级丹药Harvest"/>
+			<drop event="Destroy" name="蛊虫花"  count="1,2" prob="0.3" tag="中级丹药Harvest"/>
+			<drop event="Destroy" name="九幽黄泉血晶"  count="1,2" prob="0.3" tag="高级丹药Harvest"/>
+			<drop event="Destroy" name="极阴之眼"  count="1,2" prob="0.3" tag="高级丹药Harvest"/>
+			<drop event="Destroy" name="食神花"  count="1,2" prob="0.3" tag="高级丹药Harvest"/>
+		</block>
+		<!-- 沙漠——土系铁矿——赤血铜 -->
+		<block name="赤血铜">
+			<property name="Extends" value="stalagmite04"/>
+			<property name="CustomIconTint" value="FFFF00"/>
+			<property name="CustomIcon" value="stalagmite04"/>
+			<property name="DisplayInfo" value="Name"/>
+			<drop event="Destroy" name="玄铁石"  count="1,2" prob="0.3" tag="初级采矿Harvest"/>
+			<drop event="Destroy" name="九阳铁矿"  count="1,2" prob="0.3" tag="初级采矿Harvest"/>
+			<drop event="Destroy" name="漠石"  count="1,2" prob="0.3" tag="初级采矿Harvest"/>
+			<drop event="Destroy" name="黄铁"  count="1,2" prob="0.3" tag="中级采矿Harvest"/>
+			<drop event="Destroy" name="沙漠之矿"  count="1,2" prob="0.3" tag="中级采矿Harvest"/>
+			<drop event="Destroy" name="金晶矿"  count="1,2" prob="0.3" tag="中级采矿Harvest"/>
+			<drop event="Destroy" name="九幽血晶矿"  count="1,2" prob="0.3" tag="高级采矿Harvest"/>
+			<drop event="Destroy" name="黄晶石"  count="1,2" prob="0.3" tag="高级采矿Harvest"/>
+			<drop event="Destroy" name="黄泉矿"  count="1,2" prob="0.3" tag="高级采矿Harvest"/>
+		</block>
+		<!--个人的代码-->
+
+
+<!-- END - PORTALS ____________________________________________________________________________-->
+	
+	</append>
+<!-- END: APPEND BLOCKS -->
+
+	
+	
+<!-- ESSENCE HARVESTS ____________________________________________________________________________-->
+<!-- ROCKS -->
+	<!-- T3 BOULDERS -->
+
+<!-- ORE -->
+	<!-- T3 ORE VEINS -->
+
+	<!--___________________ SORCERY APPEND VANILLA ___________________-->
+	<!-- SET TAGS: Ore Boulders (ore,surfaceOre) -->
+	<setattribute xpath="/blocks/block[@name='oreIronBoulder' or @name='oreLeadBoulder' or @name='orePotassiumNitrateBoulder' and not(@tag)]" name="tag">ore,surfaceOre</setattribute>
+	
+
+	<!-- Lock Shatter Rune: Tags for Chests -->
+	<append xpath="/blocks/block[@name='cntHardenedChestSecure' or @name='cntLootChestHero' or @name='cntSecureStorageChest']/property[@name='Tags']/@value">,lockedChest</append>
+	<append xpath="/blocks/block[@name='cntBuriedFoodStashChest' or @name='cntBuriedWeaponChest' or @name='cntBuriedLootStashChest']/property[@name='Tags']/@value">,lockedChest</append>
+	<!-- Door Shatter Rune: Tags for Doors -->
+	<append xpath="/blocks/block[@name='jailDoorStatic' or @name='jailDoorStaticCentered']">
+		<property name="Tags" value="lockedDoor"/>
+	</append>
+	<!-- Contains: <property name="Class" value="DoorSecure"/> -->
+	<append xpath="/blocks/block[@name='woodHatch1_v1' or @name='scrapHatch_v1']/property[@name='Tags']/@value">,lockedDoor</append>
+	<append xpath="/blocks/block[@name='secureDoorWooden' or @name='secureReinforcedDoorWooden' or @name='metalReinforcedDoorWooden']/property[@name='Tags']/@value">,lockedDoor</append>
+	<append xpath="/blocks/block[@name='ironDoor1_v1' or @name='vaultDoor01' or @name='vaultDoor03']/property[@name='Tags']/@value">,lockedDoor</append>
+	<append xpath="/blocks/block[@name='commercialDoor1_v1' or @name='commercialDoor1_v3' or @name='houseFrontDoor1_v1']/property[@name='Tags']/@value">,lockedDoor</append>
+	<append xpath="/blocks/block[@name='garageDoorMetal_v1' or @name='garageDoorMetal_v3' or @name='garageDoorHousePlayer' or @name='garageDoorHouseBrown' or @name='garageDoorIndustrial']/property[@name='Tags']/@value">,lockedDoor</append>
+
+<!-- ITEM HARVESTS -->
+	<setattribute xpath="/blocks/block//drop[@event='Destroy' and @name='resourcePaper' and not(@tag)]" name="tag">resourcePaper,Scholar</setattribute>
+	<setattribute xpath="/blocks/block//drop[@event='Destroy' and @name='resourceBrokenGlass' and not(@tag)]" name="tag">brokenglass,Alchemist</setattribute>	
+	<setattribute xpath="/blocks/block[@name='plantedCotton3Harvest' or @name='plantedCotton3HarvestPlayer' and not(@tag)]" name="tag">wildCottonHarvest,Tailor</setattribute>
+	
+</Sorcery>

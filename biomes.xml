@@ -1,0 +1,36 @@
+<Sorcery>
+
+	<!-- SNOW: ICE -->
+	<append xpath="/worldgeneration/biomes/biome[@name='snow']/decorations">
+		<decoration type="block" blockname="灵石矿" onslopes="true" prob=".0002" rotatemax="7"/>
+		<decoration type="block" blockname="寒铁" onslopes="true" prob=".0025" rotatemax="7"/>
+		<decoration type="block" blockname="雪莲子" onslopes="true" prob=".0025" rotatemax="7"/>
+
+	</append>
+
+
+	<!-- FOREST: OMNI -->	
+	<append xpath="/worldgeneration/biomes/biome[@name='pine_forest']/decorations">
+		<decoration type="block" blockname="灵石矿" onslopes="true" prob=".0002" rotatemax="7"/>
+		<decoration type="block" blockname="天青石矿" onslopes="true" prob=".0025" rotatemax="7"/>
+		<decoration type="block" blockname="青灵藤" onslopes="true" prob=".0025" rotatemax="7"/>
+	</append>
+
+	<!-- DESERT: LIGHTNING -->
+	<append xpath="/worldgeneration/biomes/biome[@name='desert']/decorations">
+		<decoration type="block" blockname="灵石矿" onslopes="true" prob=".0002" rotatemax="7"/>
+		<decoration type="block" blockname="黄泉晶" onslopes="true" prob=".0025" rotatemax="7"/>
+		<decoration type="block" blockname="赤血铜" onslopes="true" prob=".0025" rotatemax="7"/>
+	</append>
+
+	<!-- WASTELAND / BURNT: FIRE -->
+	<append xpath="/worldgeneration/biomes/biome[@name='wasteland' or @name='burnt_forest']/decorations">
+		<decoration type="block" blockname="灵石矿" onslopes="true" prob=".0002" rotatemax="7"/>
+		<decoration type="block" blockname="黑天麻" onslopes="true" prob=".0025" rotatemax="7"/>
+		<decoration type="block" blockname="乌金矿" onslopes="true" prob=".0025" rotatemax="7"/>
+		<decoration type="block" blockname="火阳果" onslopes="true" prob=".0025" rotatemax="7"/>
+		<decoration type="block" blockname="赤炎之心" onslopes="true" prob=".0025" rotatemax="7"/>
+
+	</append>
+	
+</Sorcery>

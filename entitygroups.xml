@@ -1,0 +1,239 @@
+<configs>
+	<append xpath="/entitygroups/entitygroup[@name='ZombiesAll']">
+		<entity name="[BBFFFF]【感知境】游客" prob="0.25"/>
+		<entity name="[ADFEDC]【筑基境】游客" prob="0.25"/>
+		<entity name="[1AFD9C]【元丹境】游客" prob="0.25"/>
+		<entity name="[28FF28]【元婴境】游客" prob="0.25"/>
+		<entity name="[FFFF6F]【化神境】游客" prob="0.25"/>
+		<entity name="[8C8C00]【炼虚境】游客" prob="0.25"/>
+		<entity name="[FFE153]【合体境】游客" prob="0.25"/>
+		<entity name="[EAC100]【大乘境】游客" prob="0.25"/>
+		<entity name="[FFAF60]【半神境】游客" prob="0.25"/>
+		<entity name="[FF9224]【真神境】游客" prob="0.25"/>
+		<entity name="[EA7500]【灵武境】游客" prob="0.25"/>
+		<entity name="[BB5E00]【神武境】游客" prob="0.25"/>
+		<entity name="[FF5809]【地阴境】游客" prob="0.25"/>
+		<entity name="[D94600]【天阳境】游客" prob="0.25"/>
+		<entity name="[A23400]【生死境】游客" prob="0.25"/>
+		<entity name="[9999CC]【涅槃境】游客" prob="0.25"/>
+		<entity name="[5A5AAD]【散仙】游客" prob="0.25"/>
+		<entity name="[8F4586]【真仙】游客" prob="0.25"/>
+	</append>
+
+	<append xpath="/entitygroups/entitygroup[@name='ZombiesNight']">
+		<entity name="[BBFFFF]【感知境】游客" prob="0.25"/>
+		<entity name="[ADFEDC]【筑基境】游客" prob="0.25"/>
+		<entity name="[1AFD9C]【元丹境】游客" prob="0.25"/>
+		<entity name="[28FF28]【元婴境】游客" prob="0.25"/>
+		<entity name="[FFFF6F]【化神境】游客" prob="0.25"/>
+		<entity name="[8C8C00]【炼虚境】游客" prob="0.25"/>
+		<entity name="[FFE153]【合体境】游客" prob="0.25"/>
+		<entity name="[EAC100]【大乘境】游客" prob="0.25"/>
+		<entity name="[FFAF60]【半神境】游客" prob="0.25"/>
+		<entity name="[FF9224]【真神境】游客" prob="0.25"/>
+		<entity name="[EA7500]【灵武境】游客" prob="0.25"/>
+		<entity name="[BB5E00]【神武境】游客" prob="0.25"/>
+		<entity name="[FF5809]【地阴境】游客" prob="0.25"/>
+		<entity name="[D94600]【天阳境】游客" prob="0.25"/>
+		<entity name="[A23400]【生死境】游客" prob="0.25"/>
+		<entity name="[9999CC]【涅槃境】游客" prob="0.25"/>
+		<entity name="[5A5AAD]【散仙】游客" prob="0.25"/>
+		<entity name="[8F4586]【真仙】游客" prob="0.25"/>
+	</append>
+
+	<append xpath="/entitygroups/entitygroup[@name='ZombiesForestDowntown']">
+		<entity name="[BBFFFF]【感知境】游客" prob="0.25"/>
+		<entity name="[ADFEDC]【筑基境】游客" prob="0.25"/>
+		<entity name="[1AFD9C]【元丹境】游客" prob="0.25"/>
+		<entity name="[28FF28]【元婴境】游客" prob="0.25"/>
+		<entity name="[FFFF6F]【化神境】游客" prob="0.25"/>
+		<entity name="[8C8C00]【炼虚境】游客" prob="0.25"/>
+		<entity name="[FFE153]【合体境】游客" prob="0.25"/>
+		<entity name="[EAC100]【大乘境】游客" prob="0.25"/>
+		<entity name="[FFAF60]【半神境】游客" prob="0.25"/>
+		<entity name="[FF9224]【真神境】游客" prob="0.25"/>
+		<entity name="[EA7500]【灵武境】游客" prob="0.25"/>
+		<entity name="[BB5E00]【神武境】游客" prob="0.25"/>
+		<entity name="[FF5809]【地阴境】游客" prob="0.25"/>
+		<entity name="[D94600]【天阳境】游客" prob="0.25"/>
+		<entity name="[A23400]【生死境】游客" prob="0.25"/>
+		<entity name="[9999CC]【涅槃境】游客" prob="0.25"/>
+		<entity name="[5A5AAD]【散仙】游客" prob="0.25"/>
+		<entity name="[8F4586]【真仙】游客" prob="0.25"/>
+	</append>
+
+	<append xpath="/entitygroups/entitygroup[@name='ZombiesForestDowntownNight']">
+		<entity name="[BBFFFF]【感知境】游客" prob="0.25"/>
+		<entity name="[ADFEDC]【筑基境】游客" prob="0.25"/>
+		<entity name="[1AFD9C]【元丹境】游客" prob="0.25"/>
+		<entity name="[28FF28]【元婴境】游客" prob="0.25"/>
+		<entity name="[FFFF6F]【化神境】游客" prob="0.25"/>
+		<entity name="[8C8C00]【炼虚境】游客" prob="0.25"/>
+		<entity name="[FFE153]【合体境】游客" prob="0.25"/>
+		<entity name="[EAC100]【大乘境】游客" prob="0.25"/>
+		<entity name="[FFAF60]【半神境】游客" prob="0.25"/>
+		<entity name="[FF9224]【真神境】游客" prob="0.25"/>
+		<entity name="[EA7500]【灵武境】游客" prob="0.25"/>
+		<entity name="[BB5E00]【神武境】游客" prob="0.25"/>
+		<entity name="[FF5809]【地阴境】游客" prob="0.25"/>
+		<entity name="[D94600]【天阳境】游客" prob="0.25"/>
+		<entity name="[A23400]【生死境】游客" prob="0.25"/>
+		<entity name="[9999CC]【涅槃境】游客" prob="0.25"/>
+		<entity name="[5A5AAD]【散仙】游客" prob="0.25"/>
+		<entity name="[8F4586]【真仙】游客" prob="0.25"/>
+	</append>
+
+	<append xpath="/entitygroups/entitygroup[@name='ZombiesDowntown']">
+		<entity name="[BBFFFF]【感知境】游客" prob="0.25"/>
+		<entity name="[ADFEDC]【筑基境】游客" prob="0.25"/>
+		<entity name="[1AFD9C]【元丹境】游客" prob="0.25"/>
+		<entity name="[28FF28]【元婴境】游客" prob="0.25"/>
+		<entity name="[FFFF6F]【化神境】游客" prob="0.25"/>
+		<entity name="[8C8C00]【炼虚境】游客" prob="0.25"/>
+		<entity name="[FFE153]【合体境】游客" prob="0.25"/>
+		<entity name="[EAC100]【大乘境】游客" prob="0.25"/>
+		<entity name="[FFAF60]【半神境】游客" prob="0.25"/>
+		<entity name="[FF9224]【真神境】游客" prob="0.25"/>
+		<entity name="[EA7500]【灵武境】游客" prob="0.25"/>
+		<entity name="[BB5E00]【神武境】游客" prob="0.25"/>
+		<entity name="[FF5809]【地阴境】游客" prob="0.25"/>
+		<entity name="[D94600]【天阳境】游客" prob="0.25"/>
+		<entity name="[A23400]【生死境】游客" prob="0.25"/>
+		<entity name="[9999CC]【涅槃境】游客" prob="0.25"/>
+		<entity name="[5A5AAD]【散仙】游客" prob="0.25"/>
+		<entity name="[8F4586]【真仙】游客" prob="0.25"/>
+	</append>
+
+	<append xpath="/entitygroups/entitygroup[@name='ZombiesWasteland']">
+		<entity name="[BBFFFF]【感知境】游客" prob="0.25"/>
+		<entity name="[ADFEDC]【筑基境】游客" prob="0.25"/>
+		<entity name="[1AFD9C]【元丹境】游客" prob="0.25"/>
+		<entity name="[28FF28]【元婴境】游客" prob="0.25"/>
+		<entity name="[FFFF6F]【化神境】游客" prob="0.25"/>
+		<entity name="[8C8C00]【炼虚境】游客" prob="0.25"/>
+		<entity name="[FFE153]【合体境】游客" prob="0.25"/>
+		<entity name="[EAC100]【大乘境】游客" prob="0.25"/>
+		<entity name="[FFAF60]【半神境】游客" prob="0.25"/>
+		<entity name="[FF9224]【真神境】游客" prob="0.25"/>
+		<entity name="[EA7500]【灵武境】游客" prob="0.25"/>
+		<entity name="[BB5E00]【神武境】游客" prob="0.25"/>
+		<entity name="[FF5809]【地阴境】游客" prob="0.25"/>
+		<entity name="[D94600]【天阳境】游客" prob="0.25"/>
+		<entity name="[A23400]【生死境】游客" prob="0.25"/>
+		<entity name="[9999CC]【涅槃境】游客" prob="0.25"/>
+		<entity name="[5A5AAD]【散仙】游客" prob="0.25"/>
+		<entity name="[8F4586]【真仙】游客" prob="0.25"/>
+	</append>
+
+
+	<append xpath="/entitygroups/entitygroup[@name='ZombiesWastelandNight']">
+		<entity name="[BBFFFF]【感知境】游客" prob="0.25"/>
+		<entity name="[ADFEDC]【筑基境】游客" prob="0.25"/>
+		<entity name="[1AFD9C]【元丹境】游客" prob="0.25"/>
+		<entity name="[28FF28]【元婴境】游客" prob="0.25"/>
+		<entity name="[FFFF6F]【化神境】游客" prob="0.25"/>
+		<entity name="[8C8C00]【炼虚境】游客" prob="0.25"/>
+		<entity name="[FFE153]【合体境】游客" prob="0.25"/>
+		<entity name="[EAC100]【大乘境】游客" prob="0.25"/>
+		<entity name="[FFAF60]【半神境】游客" prob="0.25"/>
+		<entity name="[FF9224]【真神境】游客" prob="0.25"/>
+		<entity name="[EA7500]【灵武境】游客" prob="0.25"/>
+		<entity name="[BB5E00]【神武境】游客" prob="0.25"/>
+		<entity name="[FF5809]【地阴境】游客" prob="0.25"/>
+		<entity name="[D94600]【天阳境】游客" prob="0.25"/>
+		<entity name="[A23400]【生死境】游客" prob="0.25"/>
+		<entity name="[9999CC]【涅槃境】游客" prob="0.25"/>
+		<entity name="[5A5AAD]【散仙】游客" prob="0.25"/>
+		<entity name="[8F4586]【真仙】游客" prob="0.25"/>
+	</append>
+
+	<!--加入废墟城镇-->
+	<append xpath="/entitygroups/entitygroup[@name='ZombiesWastelandDowntown']">
+		<entity name="[BBFFFF]【感知境】游客" prob="0.25"/>
+		<entity name="[ADFEDC]【筑基境】游客" prob="0.25"/>
+		<entity name="[1AFD9C]【元丹境】游客" prob="0.25"/>
+		<entity name="[28FF28]【元婴境】游客" prob="0.25"/>
+		<entity name="[FFFF6F]【化神境】游客" prob="0.25"/>
+		<entity name="[8C8C00]【炼虚境】游客" prob="0.25"/>
+		<entity name="[FFE153]【合体境】游客" prob="0.25"/>
+		<entity name="[EAC100]【大乘境】游客" prob="0.25"/>
+		<entity name="[FFAF60]【半神境】游客" prob="0.25"/>
+		<entity name="[FF9224]【真神境】游客" prob="0.25"/>
+		<entity name="[EA7500]【灵武境】游客" prob="0.25"/>
+		<entity name="[BB5E00]【神武境】游客" prob="0.25"/>
+		<entity name="[FF5809]【地阴境】游客" prob="0.25"/>
+		<entity name="[D94600]【天阳境】游客" prob="0.25"/>
+		<entity name="[A23400]【生死境】游客" prob="0.25"/>
+		<entity name="[9999CC]【涅槃境】游客" prob="0.25"/>
+		<entity name="[5A5AAD]【散仙】游客" prob="0.25"/>
+		<entity name="[8F4586]【真仙】游客" prob="0.25"/>
+	</append>
+
+	<!--加入普通房间的怪物生成中-->
+	<insertAfter xpath="/entitygroups/entitygroup[ starts-with(@name, 'sleeperHordeStageGS')]/entity[@name='zombieFemaleFat']">
+		<entity name="[BBFFFF]【感知境】游客" prob="0.25"/>
+		<entity name="[ADFEDC]【筑基境】游客" prob="0.25"/>
+		<entity name="[1AFD9C]【元丹境】游客" prob="0.25"/>
+		<entity name="[28FF28]【元婴境】游客" prob="0.25"/>
+		<entity name="[FFFF6F]【化神境】游客" prob="0.25"/>
+		<entity name="[8C8C00]【炼虚境】游客" prob="0.25"/>
+		<entity name="[FFE153]【合体境】游客" prob="0.25"/>
+		<entity name="[EAC100]【大乘境】游客" prob="0.25"/>
+		<entity name="[FFAF60]【半神境】游客" prob="0.25"/>
+		<entity name="[FF9224]【真神境】游客" prob="0.25"/>
+		<entity name="[EA7500]【灵武境】游客" prob="0.25"/>
+		<entity name="[BB5E00]【神武境】游客" prob="0.25"/>
+		<entity name="[FF5809]【地阴境】游客" prob="0.25"/>
+		<entity name="[D94600]【天阳境】游客" prob="0.25"/>
+		<entity name="[A23400]【生死境】游客" prob="0.25"/>
+		<entity name="[9999CC]【涅槃境】游客" prob="0.25"/>
+		<entity name="[5A5AAD]【散仙】游客" prob="0.25"/>
+		<entity name="[8F4586]【真仙】游客" prob="0.25"/>
+	</insertAfter>
+
+	<!--游荡丧尸添加-->
+	<insertAfter xpath="/entitygroups/entitygroup[ starts-with(@name, 'wanderingHordeStageGS')]/entity[@name='zombieSkateboarder']">
+		<entity name="[BBFFFF]【感知境】游客" prob="0.25"/>
+		<entity name="[ADFEDC]【筑基境】游客" prob="0.25"/>
+		<entity name="[1AFD9C]【元丹境】游客" prob="0.25"/>
+		<entity name="[28FF28]【元婴境】游客" prob="0.25"/>
+		<entity name="[FFFF6F]【化神境】游客" prob="0.25"/>
+		<entity name="[8C8C00]【炼虚境】游客" prob="0.25"/>
+		<entity name="[FFE153]【合体境】游客" prob="0.25"/>
+		<entity name="[EAC100]【大乘境】游客" prob="0.25"/>
+		<entity name="[FFAF60]【半神境】游客" prob="0.25"/>
+		<entity name="[FF9224]【真神境】游客" prob="0.25"/>
+		<entity name="[EA7500]【灵武境】游客" prob="0.25"/>
+		<entity name="[BB5E00]【神武境】游客" prob="0.25"/>
+		<entity name="[FF5809]【地阴境】游客" prob="0.25"/>
+		<entity name="[D94600]【天阳境】游客" prob="0.25"/>
+		<entity name="[A23400]【生死境】游客" prob="0.25"/>
+		<entity name="[9999CC]【涅槃境】游客" prob="0.25"/>
+		<entity name="[5A5AAD]【散仙】游客" prob="0.25"/>
+		<entity name="[8F4586]【真仙】游客" prob="0.25"/>
+	</insertAfter>
+
+	<!--加入血月的怪物生成中-->
+	<insertAfter xpath="/entitygroups/entitygroup[ starts-with(@name, 'feralHordeStageGS')]/entity[@name='zombieFemaleFat']">
+		<entity name="[BBFFFF]【感知境】游客" prob="0.25"/>
+		<entity name="[ADFEDC]【筑基境】游客" prob="0.25"/>
+		<entity name="[1AFD9C]【元丹境】游客" prob="0.25"/>
+		<entity name="[28FF28]【元婴境】游客" prob="0.25"/>
+		<entity name="[FFFF6F]【化神境】游客" prob="0.25"/>
+		<entity name="[8C8C00]【炼虚境】游客" prob="0.25"/>
+		<entity name="[FFE153]【合体境】游客" prob="0.25"/>
+		<entity name="[EAC100]【大乘境】游客" prob="0.25"/>
+		<entity name="[FFAF60]【半神境】游客" prob="0.25"/>
+		<entity name="[FF9224]【真神境】游客" prob="0.25"/>
+		<entity name="[EA7500]【灵武境】游客" prob="0.25"/>
+		<entity name="[BB5E00]【神武境】游客" prob="0.25"/>
+		<entity name="[FF5809]【地阴境】游客" prob="0.25"/>
+		<entity name="[D94600]【天阳境】游客" prob="0.25"/>
+		<entity name="[A23400]【生死境】游客" prob="0.25"/>
+		<entity name="[9999CC]【涅槃境】游客" prob="0.25"/>
+		<entity name="[5A5AAD]【散仙】游客" prob="0.25"/>
+		<entity name="[8F4586]【真仙】游客" prob="0.25"/>
+	</insertAfter>
+
+
+</configs>

@@ -1,0 +1,8 @@
+<configs>
+	<!--<append xpath="/spawning/biome[@name='wasteland']">
+		<spawn maxcount="1" respawndelay="1" time="Day" entitygroup="ZombiesWasteland" />
+		<spawn maxcount="1" respawndelay="1" time="Night" entitygroup="ZombiesWastelandNightHard" />
+	</append>-->
+</configs>
+
+
