@@ -8,7 +8,7 @@
 	
 <!--========== Tier 1 Walker Zombies definition ==========-->
 	<append xpath="/entity_classes">
-		<!--添加凶残的游客-->
+		<!--添加游客-->
 		<entity_class name="[BBFFFF]【感知境】游客" extends="zombieTemplateMale">
 			<property name="Tags" value="entity,zombie,walker"/>
 			<property name="Mesh" value="#Entities/Zombies?Prefabs/ZHawaiian.prefab"/>
@@ -567,8 +567,512 @@
 			</effect_group>
 		</entity_class>
 
-		<!--凶残的游客全部境界添加完毕-->
+		<!--游客全部境界添加完毕-->
 
+		<!--添加 阿琳僵尸-->
+		<entity_class name="[BBFFFF]【感知境】阿琳" extends="zombieTemplateMale">
+			<property name="SizeScale" value="0.9"/>
+			<property name="Tags" value="entity,zombie,walker"/>
+			<property name="Mesh" value="#Entities/Zombies?Prefabs/ZArlene.prefab"/>
+			<property name="SoundRandom" value="Enemies/Base_Zombie_Female/zombiefemaleroam"/>
+			<property name="SoundAlert" value="Enemies/Base_Zombie_Female/zombiefemalealert"/>
+			<property name="SoundAttack" value="Enemies/Base_Zombie_Female/zombiefemaleattack"/>
+			<property name="SoundHurt" value="Enemies/Base_Zombie_Female/zombiefemalepain"/>
+			<property name="SoundDeath" value="Enemies/Base_Zombie_Female/zombiefemaledeath"/>
+			<property name="SoundSense" value="Enemies/Base_Zombie_Female/zombiefemalesense"/>
+			<property name="AvatarController" value="AvatarZombie01Controller"/>
+			<property name="ModelType" value="Standard"/>
+			<property name="WalkType" value="3"/>
+			<property name="RootMotion" value="true"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="AIPathCostScale" value=".4, .4"/>
+			<property name="NavObjectHeadOffset" value="0,-0.15,0" />
+			<property name="DanceType" value="2" />
+
+			<!-- Gameplay zombieArlene -->
+			<property name="MoveSpeedAggro" value="0.3, 1.35"/> <!-- slim, regular -->
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="400">
+					<requirement name="RandomRoll" seed_type="Item" min_max="100,150" operation="GTE" value="12"/>
+				</passive_effect>
+			</effect_group>
+		</entity_class>
+
+		<entity_class name="[ADFEDC]【筑基境】阿琳" extends="zombieTemplateMale">
+			<property name="SizeScale" value="0.9"/>
+			<property name="Tags" value="entity,zombie,walker"/>
+			<property name="Mesh" value="#Entities/Zombies?Prefabs/ZArlene.prefab"/>
+			<property name="SoundRandom" value="Enemies/Base_Zombie_Female/zombiefemaleroam"/>
+			<property name="SoundAlert" value="Enemies/Base_Zombie_Female/zombiefemalealert"/>
+			<property name="SoundAttack" value="Enemies/Base_Zombie_Female/zombiefemaleattack"/>
+			<property name="SoundHurt" value="Enemies/Base_Zombie_Female/zombiefemalepain"/>
+			<property name="SoundDeath" value="Enemies/Base_Zombie_Female/zombiefemaledeath"/>
+			<property name="SoundSense" value="Enemies/Base_Zombie_Female/zombiefemalesense"/>
+			<property name="AvatarController" value="AvatarZombie01Controller"/>
+			<property name="ModelType" value="Standard"/>
+			<property name="WalkType" value="3"/>
+			<property name="RootMotion" value="true"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="AIPathCostScale" value=".4, .4"/>
+			<property name="NavObjectHeadOffset" value="0,-0.15,0" />
+			<property name="DanceType" value="2" />
+
+			<!-- Gameplay zombieArlene -->
+			<property name="MoveSpeedAggro" value="0.3, 1.35"/> <!-- slim, regular -->
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="500">
+					<requirement name="RandomRoll" seed_type="Item" min_max="100,250" operation="GTE" value="12"/>
+				</passive_effect>
+			</effect_group>
+		</entity_class>
+
+		<entity_class name="[1AFD9C]【元丹境】阿琳" extends="zombieTemplateMale">
+			<property name="SizeScale" value="0.9"/>
+			<property name="Tags" value="entity,zombie,walker"/>
+			<property name="Mesh" value="#Entities/Zombies?Prefabs/ZArlene.prefab"/>
+			<property name="SoundRandom" value="Enemies/Base_Zombie_Female/zombiefemaleroam"/>
+			<property name="SoundAlert" value="Enemies/Base_Zombie_Female/zombiefemalealert"/>
+			<property name="SoundAttack" value="Enemies/Base_Zombie_Female/zombiefemaleattack"/>
+			<property name="SoundHurt" value="Enemies/Base_Zombie_Female/zombiefemalepain"/>
+			<property name="SoundDeath" value="Enemies/Base_Zombie_Female/zombiefemaledeath"/>
+			<property name="SoundSense" value="Enemies/Base_Zombie_Female/zombiefemalesense"/>
+			<property name="AvatarController" value="AvatarZombie01Controller"/>
+			<property name="ModelType" value="Standard"/>
+			<property name="WalkType" value="3"/>
+			<property name="RootMotion" value="true"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="AIPathCostScale" value=".4, .4"/>
+			<property name="NavObjectHeadOffset" value="0,-0.15,0" />
+			<property name="DanceType" value="2" />
+
+			<!-- Gameplay zombieArlene -->
+			<property name="MoveSpeedAggro" value="0.3, 1.35"/> <!-- slim, regular -->
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="600">
+					<requirement name="RandomRoll" seed_type="Item" min_max="100,250" operation="GTE" value="12"/>
+				</passive_effect>
+			</effect_group>
+		</entity_class>
+
+		<entity_class name="[28FF28]【元婴境】阿琳" extends="zombieTemplateMale">
+			<property name="SizeScale" value="0.9"/>
+			<property name="Tags" value="entity,zombie,walker"/>
+			<property name="Mesh" value="#Entities/Zombies?Prefabs/ZArlene.prefab"/>
+			<property name="SoundRandom" value="Enemies/Base_Zombie_Female/zombiefemaleroam"/>
+			<property name="SoundAlert" value="Enemies/Base_Zombie_Female/zombiefemalealert"/>
+			<property name="SoundAttack" value="Enemies/Base_Zombie_Female/zombiefemaleattack"/>
+			<property name="SoundHurt" value="Enemies/Base_Zombie_Female/zombiefemalepain"/>
+			<property name="SoundDeath" value="Enemies/Base_Zombie_Female/zombiefemaledeath"/>
+			<property name="SoundSense" value="Enemies/Base_Zombie_Female/zombiefemalesense"/>
+			<property name="AvatarController" value="AvatarZombie01Controller"/>
+			<property name="ModelType" value="Standard"/>
+			<property name="WalkType" value="3"/>
+			<property name="RootMotion" value="true"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="AIPathCostScale" value=".4, .4"/>
+			<property name="NavObjectHeadOffset" value="0,-0.15,0" />
+			<property name="DanceType" value="2" />
+
+			<!-- Gameplay zombieArlene -->
+			<property name="MoveSpeedAggro" value="0.3, 1.35"/> <!-- slim, regular -->
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="700">
+					<requirement name="RandomRoll" seed_type="Item" min_max="100,250" operation="GTE" value="12"/>
+				</passive_effect>
+			</effect_group>
+		</entity_class>
+
+		<entity_class name="[FFFF6F]【化神境】阿琳" extends="zombieTemplateMale">
+			<property name="SizeScale" value="0.9"/>
+			<property name="Tags" value="entity,zombie,walker"/>
+			<property name="Mesh" value="#Entities/Zombies?Prefabs/ZArlene.prefab"/>
+			<property name="SoundRandom" value="Enemies/Base_Zombie_Female/zombiefemaleroam"/>
+			<property name="SoundAlert" value="Enemies/Base_Zombie_Female/zombiefemalealert"/>
+			<property name="SoundAttack" value="Enemies/Base_Zombie_Female/zombiefemaleattack"/>
+			<property name="SoundHurt" value="Enemies/Base_Zombie_Female/zombiefemalepain"/>
+			<property name="SoundDeath" value="Enemies/Base_Zombie_Female/zombiefemaledeath"/>
+			<property name="SoundSense" value="Enemies/Base_Zombie_Female/zombiefemalesense"/>
+			<property name="AvatarController" value="AvatarZombie01Controller"/>
+			<property name="ModelType" value="Standard"/>
+			<property name="WalkType" value="3"/>
+			<property name="RootMotion" value="true"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="AIPathCostScale" value=".4, .4"/>
+			<property name="NavObjectHeadOffset" value="0,-0.15,0" />
+			<property name="DanceType" value="2" />
+
+			<!-- Gameplay zombieArlene -->
+			<property name="MoveSpeedAggro" value="0.3, 1.35"/> <!-- slim, regular -->
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="800">
+					<requirement name="RandomRoll" seed_type="Item" min_max="100,250" operation="GTE" value="12"/>
+				</passive_effect>
+			</effect_group>
+		</entity_class>
+
+		<entity_class name="[8C8C00]【炼虚境】阿琳" extends="zombieTemplateMale">
+			<property name="SizeScale" value="0.9"/>
+			<property name="Tags" value="entity,zombie,walker"/>
+			<property name="Mesh" value="#Entities/Zombies?Prefabs/ZArlene.prefab"/>
+			<property name="SoundRandom" value="Enemies/Base_Zombie_Female/zombiefemaleroam"/>
+			<property name="SoundAlert" value="Enemies/Base_Zombie_Female/zombiefemalealert"/>
+			<property name="SoundAttack" value="Enemies/Base_Zombie_Female/zombiefemaleattack"/>
+			<property name="SoundHurt" value="Enemies/Base_Zombie_Female/zombiefemalepain"/>
+			<property name="SoundDeath" value="Enemies/Base_Zombie_Female/zombiefemaledeath"/>
+			<property name="SoundSense" value="Enemies/Base_Zombie_Female/zombiefemalesense"/>
+			<property name="AvatarController" value="AvatarZombie01Controller"/>
+			<property name="ModelType" value="Standard"/>
+			<property name="WalkType" value="3"/>
+			<property name="RootMotion" value="true"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="AIPathCostScale" value=".4, .4"/>
+			<property name="NavObjectHeadOffset" value="0,-0.15,0" />
+			<property name="DanceType" value="2" />
+
+			<!-- Gameplay zombieArlene -->
+			<property name="MoveSpeedAggro" value="0.3, 1.35"/> <!-- slim, regular -->
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="800">
+					<requirement name="RandomRoll" seed_type="Item" min_max="100,250" operation="GTE" value="12"/>
+				</passive_effect>
+			</effect_group>
+		</entity_class>
+
+		<entity_class name="[FFE153]【合体境】阿琳" extends="zombieTemplateMale">
+			<property name="SizeScale" value="0.9"/>
+			<property name="Tags" value="entity,zombie,walker"/>
+			<property name="Mesh" value="#Entities/Zombies?Prefabs/ZArlene.prefab"/>
+			<property name="SoundRandom" value="Enemies/Base_Zombie_Female/zombiefemaleroam"/>
+			<property name="SoundAlert" value="Enemies/Base_Zombie_Female/zombiefemalealert"/>
+			<property name="SoundAttack" value="Enemies/Base_Zombie_Female/zombiefemaleattack"/>
+			<property name="SoundHurt" value="Enemies/Base_Zombie_Female/zombiefemalepain"/>
+			<property name="SoundDeath" value="Enemies/Base_Zombie_Female/zombiefemaledeath"/>
+			<property name="SoundSense" value="Enemies/Base_Zombie_Female/zombiefemalesense"/>
+			<property name="AvatarController" value="AvatarZombie01Controller"/>
+			<property name="ModelType" value="Standard"/>
+			<property name="WalkType" value="3"/>
+			<property name="RootMotion" value="true"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="AIPathCostScale" value=".4, .4"/>
+			<property name="NavObjectHeadOffset" value="0,-0.15,0" />
+			<property name="DanceType" value="2" />
+
+			<!-- Gameplay zombieArlene -->
+			<property name="MoveSpeedAggro" value="0.3, 1.35"/> <!-- slim, regular -->
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="900">
+					<requirement name="RandomRoll" seed_type="Item" min_max="100,250" operation="GTE" value="12"/>
+				</passive_effect>
+			</effect_group>
+		</entity_class>
+
+		<entity_class name="[EAC100]【大乘境】阿琳" extends="zombieTemplateMale">
+			<property name="SizeScale" value="0.9"/>
+			<property name="Tags" value="entity,zombie,walker"/>
+			<property name="Mesh" value="#Entities/Zombies?Prefabs/ZArlene.prefab"/>
+			<property name="SoundRandom" value="Enemies/Base_Zombie_Female/zombiefemaleroam"/>
+			<property name="SoundAlert" value="Enemies/Base_Zombie_Female/zombiefemalealert"/>
+			<property name="SoundAttack" value="Enemies/Base_Zombie_Female/zombiefemaleattack"/>
+			<property name="SoundHurt" value="Enemies/Base_Zombie_Female/zombiefemalepain"/>
+			<property name="SoundDeath" value="Enemies/Base_Zombie_Female/zombiefemaledeath"/>
+			<property name="SoundSense" value="Enemies/Base_Zombie_Female/zombiefemalesense"/>
+			<property name="AvatarController" value="AvatarZombie01Controller"/>
+			<property name="ModelType" value="Standard"/>
+			<property name="WalkType" value="3"/>
+			<property name="RootMotion" value="true"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="AIPathCostScale" value=".4, .4"/>
+			<property name="NavObjectHeadOffset" value="0,-0.15,0" />
+			<property name="DanceType" value="2" />
+
+			<!-- Gameplay zombieArlene -->
+			<property name="MoveSpeedAggro" value="0.3, 1.35"/> <!-- slim, regular -->
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="1000">
+					<requirement name="RandomRoll" seed_type="Item" min_max="100,500" operation="GTE" value="12"/>
+				</passive_effect>
+			</effect_group>
+		</entity_class>
+
+		<entity_class name="[FFAF60]【半神境】阿琳" extends="zombieTemplateMale">
+			<property name="SizeScale" value="0.9"/>
+			<property name="Tags" value="entity,zombie,walker"/>
+			<property name="Mesh" value="#Entities/Zombies?Prefabs/ZArlene.prefab"/>
+			<property name="SoundRandom" value="Enemies/Base_Zombie_Female/zombiefemaleroam"/>
+			<property name="SoundAlert" value="Enemies/Base_Zombie_Female/zombiefemalealert"/>
+			<property name="SoundAttack" value="Enemies/Base_Zombie_Female/zombiefemaleattack"/>
+			<property name="SoundHurt" value="Enemies/Base_Zombie_Female/zombiefemalepain"/>
+			<property name="SoundDeath" value="Enemies/Base_Zombie_Female/zombiefemaledeath"/>
+			<property name="SoundSense" value="Enemies/Base_Zombie_Female/zombiefemalesense"/>
+			<property name="AvatarController" value="AvatarZombie01Controller"/>
+			<property name="ModelType" value="Standard"/>
+			<property name="WalkType" value="3"/>
+			<property name="RootMotion" value="true"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="AIPathCostScale" value=".4, .4"/>
+			<property name="NavObjectHeadOffset" value="0,-0.15,0" />
+			<property name="DanceType" value="2" />
+
+			<!-- Gameplay zombieArlene -->
+			<property name="MoveSpeedAggro" value="0.3, 1.35"/> <!-- slim, regular -->
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="2000">
+					<requirement name="RandomRoll" seed_type="Item" min_max="100,500" operation="GTE" value="12"/>
+				</passive_effect>
+			</effect_group>
+		</entity_class>
+
+		<entity_class name="[FF9224]【真神境】阿琳" extends="zombieTemplateMale">
+			<property name="SizeScale" value="0.9"/>
+			<property name="Tags" value="entity,zombie,walker"/>
+			<property name="Mesh" value="#Entities/Zombies?Prefabs/ZArlene.prefab"/>
+			<property name="SoundRandom" value="Enemies/Base_Zombie_Female/zombiefemaleroam"/>
+			<property name="SoundAlert" value="Enemies/Base_Zombie_Female/zombiefemalealert"/>
+			<property name="SoundAttack" value="Enemies/Base_Zombie_Female/zombiefemaleattack"/>
+			<property name="SoundHurt" value="Enemies/Base_Zombie_Female/zombiefemalepain"/>
+			<property name="SoundDeath" value="Enemies/Base_Zombie_Female/zombiefemaledeath"/>
+			<property name="SoundSense" value="Enemies/Base_Zombie_Female/zombiefemalesense"/>
+			<property name="AvatarController" value="AvatarZombie01Controller"/>
+			<property name="ModelType" value="Standard"/>
+			<property name="WalkType" value="3"/>
+			<property name="RootMotion" value="true"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="AIPathCostScale" value=".4, .4"/>
+			<property name="NavObjectHeadOffset" value="0,-0.15,0" />
+			<property name="DanceType" value="2" />
+
+			<!-- Gameplay zombieArlene -->
+			<property name="MoveSpeedAggro" value="0.3, 1.35"/> <!-- slim, regular -->
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="3000">
+					<requirement name="RandomRoll" seed_type="Item" min_max="100,500" operation="GTE" value="12"/>
+				</passive_effect>
+			</effect_group>
+		</entity_class>
+
+		<entity_class name="[EA7500]【灵武境】阿琳" extends="zombieTemplateMale">
+			<property name="SizeScale" value="0.9"/>
+			<property name="Tags" value="entity,zombie,walker"/>
+			<property name="Mesh" value="#Entities/Zombies?Prefabs/ZArlene.prefab"/>
+			<property name="SoundRandom" value="Enemies/Base_Zombie_Female/zombiefemaleroam"/>
+			<property name="SoundAlert" value="Enemies/Base_Zombie_Female/zombiefemalealert"/>
+			<property name="SoundAttack" value="Enemies/Base_Zombie_Female/zombiefemaleattack"/>
+			<property name="SoundHurt" value="Enemies/Base_Zombie_Female/zombiefemalepain"/>
+			<property name="SoundDeath" value="Enemies/Base_Zombie_Female/zombiefemaledeath"/>
+			<property name="SoundSense" value="Enemies/Base_Zombie_Female/zombiefemalesense"/>
+			<property name="AvatarController" value="AvatarZombie01Controller"/>
+			<property name="ModelType" value="Standard"/>
+			<property name="WalkType" value="3"/>
+			<property name="RootMotion" value="true"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="AIPathCostScale" value=".4, .4"/>
+			<property name="NavObjectHeadOffset" value="0,-0.15,0" />
+			<property name="DanceType" value="2" />
+
+			<!-- Gameplay zombieArlene -->
+			<property name="MoveSpeedAggro" value="0.3, 1.35"/> <!-- slim, regular -->
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="3000">
+					<requirement name="RandomRoll" seed_type="Item" min_max="100,500" operation="GTE" value="12"/>
+				</passive_effect>
+			</effect_group>
+		</entity_class>
+
+		<entity_class name="[BB5E00]【神武境】阿琳" extends="zombieTemplateMale">
+			<property name="SizeScale" value="0.9"/>
+			<property name="Tags" value="entity,zombie,walker"/>
+			<property name="Mesh" value="#Entities/Zombies?Prefabs/ZArlene.prefab"/>
+			<property name="SoundRandom" value="Enemies/Base_Zombie_Female/zombiefemaleroam"/>
+			<property name="SoundAlert" value="Enemies/Base_Zombie_Female/zombiefemalealert"/>
+			<property name="SoundAttack" value="Enemies/Base_Zombie_Female/zombiefemaleattack"/>
+			<property name="SoundHurt" value="Enemies/Base_Zombie_Female/zombiefemalepain"/>
+			<property name="SoundDeath" value="Enemies/Base_Zombie_Female/zombiefemaledeath"/>
+			<property name="SoundSense" value="Enemies/Base_Zombie_Female/zombiefemalesense"/>
+			<property name="AvatarController" value="AvatarZombie01Controller"/>
+			<property name="ModelType" value="Standard"/>
+			<property name="WalkType" value="3"/>
+			<property name="RootMotion" value="true"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="AIPathCostScale" value=".4, .4"/>
+			<property name="NavObjectHeadOffset" value="0,-0.15,0" />
+			<property name="DanceType" value="2" />
+
+			<!-- Gameplay zombieArlene -->
+			<property name="MoveSpeedAggro" value="0.3, 1.35"/> <!-- slim, regular -->
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="4000">
+					<requirement name="RandomRoll" seed_type="Item" min_max="100,500" operation="GTE" value="12"/>
+				</passive_effect>
+			</effect_group>
+		</entity_class>
+
+		<entity_class name="[FF5809]【地阴境】阿琳" extends="zombieTemplateMale">
+			<property name="SizeScale" value="0.9"/>
+			<property name="Tags" value="entity,zombie,walker"/>
+			<property name="Mesh" value="#Entities/Zombies?Prefabs/ZArlene.prefab"/>
+			<property name="SoundRandom" value="Enemies/Base_Zombie_Female/zombiefemaleroam"/>
+			<property name="SoundAlert" value="Enemies/Base_Zombie_Female/zombiefemalealert"/>
+			<property name="SoundAttack" value="Enemies/Base_Zombie_Female/zombiefemaleattack"/>
+			<property name="SoundHurt" value="Enemies/Base_Zombie_Female/zombiefemalepain"/>
+			<property name="SoundDeath" value="Enemies/Base_Zombie_Female/zombiefemaledeath"/>
+			<property name="SoundSense" value="Enemies/Base_Zombie_Female/zombiefemalesense"/>
+			<property name="AvatarController" value="AvatarZombie01Controller"/>
+			<property name="ModelType" value="Standard"/>
+			<property name="WalkType" value="3"/>
+			<property name="RootMotion" value="true"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="AIPathCostScale" value=".4, .4"/>
+			<property name="NavObjectHeadOffset" value="0,-0.15,0" />
+			<property name="DanceType" value="2" />
+
+			<!-- Gameplay zombieArlene -->
+			<property name="MoveSpeedAggro" value="0.3, 1.35"/> <!-- slim, regular -->
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="5000">
+					<requirement name="RandomRoll" seed_type="Item" min_max="100,500" operation="GTE" value="12"/>
+				</passive_effect>
+			</effect_group>
+		</entity_class>
+
+		<entity_class name="[D94600]【天阳境】阿琳" extends="zombieTemplateMale">
+			<property name="SizeScale" value="0.9"/>
+			<property name="Tags" value="entity,zombie,walker"/>
+			<property name="Mesh" value="#Entities/Zombies?Prefabs/ZArlene.prefab"/>
+			<property name="SoundRandom" value="Enemies/Base_Zombie_Female/zombiefemaleroam"/>
+			<property name="SoundAlert" value="Enemies/Base_Zombie_Female/zombiefemalealert"/>
+			<property name="SoundAttack" value="Enemies/Base_Zombie_Female/zombiefemaleattack"/>
+			<property name="SoundHurt" value="Enemies/Base_Zombie_Female/zombiefemalepain"/>
+			<property name="SoundDeath" value="Enemies/Base_Zombie_Female/zombiefemaledeath"/>
+			<property name="SoundSense" value="Enemies/Base_Zombie_Female/zombiefemalesense"/>
+			<property name="AvatarController" value="AvatarZombie01Controller"/>
+			<property name="ModelType" value="Standard"/>
+			<property name="WalkType" value="3"/>
+			<property name="RootMotion" value="true"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="AIPathCostScale" value=".4, .4"/>
+			<property name="NavObjectHeadOffset" value="0,-0.15,0" />
+			<property name="DanceType" value="2" />
+
+			<!-- Gameplay zombieArlene -->
+			<property name="MoveSpeedAggro" value="0.3, 1.35"/> <!-- slim, regular -->
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="6000">
+					<requirement name="RandomRoll" seed_type="Item" min_max="100,500" operation="GTE" value="12"/>
+				</passive_effect>
+			</effect_group>
+		</entity_class>
+
+		<entity_class name="[A23400]【生死境】阿琳" extends="zombieTemplateMale">
+			<property name="SizeScale" value="0.9"/>
+			<property name="Tags" value="entity,zombie,walker"/>
+			<property name="Mesh" value="#Entities/Zombies?Prefabs/ZArlene.prefab"/>
+			<property name="SoundRandom" value="Enemies/Base_Zombie_Female/zombiefemaleroam"/>
+			<property name="SoundAlert" value="Enemies/Base_Zombie_Female/zombiefemalealert"/>
+			<property name="SoundAttack" value="Enemies/Base_Zombie_Female/zombiefemaleattack"/>
+			<property name="SoundHurt" value="Enemies/Base_Zombie_Female/zombiefemalepain"/>
+			<property name="SoundDeath" value="Enemies/Base_Zombie_Female/zombiefemaledeath"/>
+			<property name="SoundSense" value="Enemies/Base_Zombie_Female/zombiefemalesense"/>
+			<property name="AvatarController" value="AvatarZombie01Controller"/>
+			<property name="ModelType" value="Standard"/>
+			<property name="WalkType" value="3"/>
+			<property name="RootMotion" value="true"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="AIPathCostScale" value=".4, .4"/>
+			<property name="NavObjectHeadOffset" value="0,-0.15,0" />
+			<property name="DanceType" value="2" />
+
+			<!-- Gameplay zombieArlene -->
+			<property name="MoveSpeedAggro" value="0.3, 1.35"/> <!-- slim, regular -->
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="7000">
+					<requirement name="RandomRoll" seed_type="Item" min_max="100,500" operation="GTE" value="12"/>
+				</passive_effect>
+			</effect_group>
+		</entity_class>
+
+		<entity_class name="[9999CC]【涅槃境】阿琳" extends="zombieTemplateMale">
+			<property name="SizeScale" value="0.9"/>
+			<property name="Tags" value="entity,zombie,walker"/>
+			<property name="Mesh" value="#Entities/Zombies?Prefabs/ZArlene.prefab"/>
+			<property name="SoundRandom" value="Enemies/Base_Zombie_Female/zombiefemaleroam"/>
+			<property name="SoundAlert" value="Enemies/Base_Zombie_Female/zombiefemalealert"/>
+			<property name="SoundAttack" value="Enemies/Base_Zombie_Female/zombiefemaleattack"/>
+			<property name="SoundHurt" value="Enemies/Base_Zombie_Female/zombiefemalepain"/>
+			<property name="SoundDeath" value="Enemies/Base_Zombie_Female/zombiefemaledeath"/>
+			<property name="SoundSense" value="Enemies/Base_Zombie_Female/zombiefemalesense"/>
+			<property name="AvatarController" value="AvatarZombie01Controller"/>
+			<property name="ModelType" value="Standard"/>
+			<property name="WalkType" value="3"/>
+			<property name="RootMotion" value="true"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="AIPathCostScale" value=".4, .4"/>
+			<property name="NavObjectHeadOffset" value="0,-0.15,0" />
+			<property name="DanceType" value="2" />
+
+			<!-- Gameplay zombieArlene -->
+			<property name="MoveSpeedAggro" value="0.3, 1.35"/> <!-- slim, regular -->
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="8000">
+					<requirement name="RandomRoll" seed_type="Item" min_max="100,500" operation="GTE" value="12"/>
+				</passive_effect>
+			</effect_group>
+		</entity_class>
+
+		<entity_class name="[5A5AAD]【散仙】阿琳" extends="zombieTemplateMale">
+			<property name="SizeScale" value="0.9"/>
+			<property name="Tags" value="entity,zombie,walker"/>
+			<property name="Mesh" value="#Entities/Zombies?Prefabs/ZArlene.prefab"/>
+			<property name="SoundRandom" value="Enemies/Base_Zombie_Female/zombiefemaleroam"/>
+			<property name="SoundAlert" value="Enemies/Base_Zombie_Female/zombiefemalealert"/>
+			<property name="SoundAttack" value="Enemies/Base_Zombie_Female/zombiefemaleattack"/>
+			<property name="SoundHurt" value="Enemies/Base_Zombie_Female/zombiefemalepain"/>
+			<property name="SoundDeath" value="Enemies/Base_Zombie_Female/zombiefemaledeath"/>
+			<property name="SoundSense" value="Enemies/Base_Zombie_Female/zombiefemalesense"/>
+			<property name="AvatarController" value="AvatarZombie01Controller"/>
+			<property name="ModelType" value="Standard"/>
+			<property name="WalkType" value="3"/>
+			<property name="RootMotion" value="true"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="AIPathCostScale" value=".4, .4"/>
+			<property name="NavObjectHeadOffset" value="0,-0.15,0" />
+			<property name="DanceType" value="2" />
+
+			<!-- Gameplay zombieArlene -->
+			<property name="MoveSpeedAggro" value="0.3, 1.35"/> <!-- slim, regular -->
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="10000">
+					<requirement name="RandomRoll" seed_type="Item" min_max="100,1000" operation="GTE" value="12"/>
+				</passive_effect>
+			</effect_group>
+		</entity_class>
+
+		<entity_class name="[8F4586]【真仙】阿琳" extends="zombieTemplateMale">
+			<property name="SizeScale" value="0.9"/>
+			<property name="Tags" value="entity,zombie,walker"/>
+			<property name="Mesh" value="#Entities/Zombies?Prefabs/ZArlene.prefab"/>
+			<property name="SoundRandom" value="Enemies/Base_Zombie_Female/zombiefemaleroam"/>
+			<property name="SoundAlert" value="Enemies/Base_Zombie_Female/zombiefemalealert"/>
+			<property name="SoundAttack" value="Enemies/Base_Zombie_Female/zombiefemaleattack"/>
+			<property name="SoundHurt" value="Enemies/Base_Zombie_Female/zombiefemalepain"/>
+			<property name="SoundDeath" value="Enemies/Base_Zombie_Female/zombiefemaledeath"/>
+			<property name="SoundSense" value="Enemies/Base_Zombie_Female/zombiefemalesense"/>
+			<property name="AvatarController" value="AvatarZombie01Controller"/>
+			<property name="ModelType" value="Standard"/>
+			<property name="WalkType" value="3"/>
+			<property name="RootMotion" value="true"/>
+			<property name="HasDeathAnim" value="true"/>
+			<property name="AIPathCostScale" value=".4, .4"/>
+			<property name="NavObjectHeadOffset" value="0,-0.15,0" />
+			<property name="DanceType" value="2" />
+
+			<!-- Gameplay zombieArlene -->
+			<property name="MoveSpeedAggro" value="0.3, 1.35"/> <!-- slim, regular -->
+			<effect_group name="Base Effects">
+				<passive_effect name="HealthMax" operation="base_set" value="20000">
+					<requirement name="RandomRoll" seed_type="Item" min_max="100,2000" operation="GTE" value="12"/>
+				</passive_effect>
+			</effect_group>
+		</entity_class>
 
 	</append>
 
