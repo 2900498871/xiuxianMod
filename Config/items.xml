@@ -425,47 +425,34 @@
 	</item>
 
 	<!--灵石-->
-	<item name="普通灵石">
+	<item name="下品灵石">
 		<property name="Extends" value="resourceRockSmall"/>
 		<property name="CustomIconTint" value="02F78E"/>
 		<property name="CustomIcon" value="foodEgg"/>
 		<property name="Stacknumber" value="6000"/>
-		<property name="DescriptionKey" value="普通灵石Desc"/>
+		<property name="DescriptionKey" value="下品灵石Desc"/>
 	</item>
-	<item name="金灵石">
+	<item name="中品灵石">
 		<property name="Extends" value="resourceRockSmall"/>
 		<property name="CustomIconTint" value="D9B300"/>
 		<property name="CustomIcon" value="foodEgg"/>
 		<property name="Stacknumber" value="6000"/>
-		<property name="DescriptionKey" value="金灵石Desc"/>
+		<property name="DescriptionKey" value="中品灵石Desc"/>
 	</item>
-	<item name="木灵石">
+	<item name="上品灵石">
 		<property name="Extends" value="resourceRockSmall"/>
 		<property name="CustomIconTint" value="00EC00"/>
 		<property name="CustomIcon" value="foodEgg"/>
 		<property name="Stacknumber" value="6000"/>
-		<property name="DescriptionKey" value="木灵石Desc"/>
+		<property name="DescriptionKey" value="上品灵石Desc"/>
 	</item>
-	<item name="水灵石">
-		<property name="Extends" value="resourceRockSmall"/>
-		<property name="CustomIconTint" value="46A3FF"/>
-		<property name="CustomIcon" value="foodEgg"/>
+
+	<item name="灵液">
+		<property name="Extends" value="drinkJarRedTea"/>
+		<property name="CustomIconTint" value="00EC00"/>
+		<property name="CustomIcon" value="drinkJarRedTea"/>
 		<property name="Stacknumber" value="6000"/>
-		<property name="DescriptionKey" value="水灵石Desc"/>
-	</item>
-	<item name="火灵石">
-		<property name="Extends" value="resourceRockSmall"/>
-		<property name="CustomIconTint" value="F75000"/>
-		<property name="CustomIcon" value="foodEgg"/>
-		<property name="Stacknumber" value="6000"/>
-		<property name="DescriptionKey" value="火灵石Desc"/>
-	</item>
-	<item name="土灵石">
-		<property name="Extends" value="resourceRockSmall"/>
-		<property name="CustomIconTint" value="FFD306"/>
-		<property name="CustomIcon" value="foodEgg"/>
-		<property name="Stacknumber" value="6000"/>
-		<property name="DescriptionKey" value="土灵石Desc"/>
+		<property name="DescriptionKey" value="灵液Desc"/>
 	</item>
 
 	<!-- 火系铁材 -->

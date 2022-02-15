@@ -1,0 +1,33 @@
+<configs>
+ 
+<append xpath="/recipes">
+
+	<recipe name="中品灵石" count="1" craft_area="workbench" tags="workbenchCrafting">
+		<ingredient name="下品灵石" count="50"/>
+	</recipe>
+
+	<recipe name="上品灵石" count="1" craft_area="[7E3D76]仙器炼制台" tags="workbenchCrafting">
+		<ingredient name="中品灵石" count="50"/>
+	</recipe>
+
+	<recipe name="[7E3D76]仙器炼制台" count="1" craft_area="workbench" tags="workbenchCrafting">
+		<ingredient name="workbench" count="1"/>
+		<ingredient name="上品灵石" count="200"/>
+	</recipe>
+
+	<recipe name="[7E3D76]炼丹炉" count="1" craft_area="workbench" tags="workbenchCrafting">
+		<ingredient name="forge" count="1"/>
+		<ingredient name="上品灵石" count="100"/>
+		<ingredient name="岩浆铁" count="5"/>
+	</recipe>
+
+	<recipe name="灵液" count="1" craft_area="[7E3D76]炼丹炉" tags="workbenchCrafting">
+		<ingredient name="上品灵石" count="10"/>
+	</recipe>
+
+
+
+
+</append>
+
+</configs>
