@@ -26,6 +26,32 @@
 	</recipe>
 
 
+	<!--*************************************************武器合成*******************************************************-->
+	<recipe name="[CCFF80]★玄阶下品木棒" count="1"  tags="workbenchCrafting">
+		<ingredient name="meleeWpnClubT0WoodenClub" count="1"/>
+		<ingredient name="下品灵石" count="50"/>
+	</recipe>
+	<recipe name="[2894FF]★★玄阶中品木棒" count="1"  tags="workbenchCrafting">
+		<ingredient name="[CCFF80]★玄阶下品木棒" count="1"/>
+		<ingredient name="下品灵石" count="250"/>
+	</recipe>
+	<recipe name="[019858]★★★玄阶上品木棒" count="1"  tags="workbenchCrafting">
+		<ingredient name="[2894FF]★★玄阶中品木棒" count="1"/>
+		<ingredient name="下品灵石" count="500"/>
+	</recipe>
+	<recipe name="[FFFF93]★★★★天阶下品木棒" count="1" craft_area="[7E3D76]仙器炼制台"  tags="workbenchCrafting">
+		<ingredient name="[019858]★★★玄阶上品木棒" count="1"/>
+		<ingredient name="中品灵石" count="300"/>
+	</recipe>
+	<recipe name="[EAC100]★★★★★天阶中品木棒" count="1" craft_area="[7E3D76]仙器炼制台"  tags="workbenchCrafting">
+		<ingredient name="[FFFF93]★★★★天阶下品木棒" count="1"/>
+		<ingredient name="中品灵石" count="600"/>
+	</recipe>
+	<recipe name="[D26900]★★★★★★天阶上品木棒" count="1" craft_area="[7E3D76]仙器炼制台"  tags="workbenchCrafting">
+		<ingredient name="[EAC100]★★★★★天阶中品木棒" count="1"/>
+		<ingredient name="中品灵石" count="1000"/>
+	</recipe>
+
 
 
 </append>
