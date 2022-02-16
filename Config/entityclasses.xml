@@ -5,8 +5,12 @@
 	<append xpath="/entity_classes/entity_class/property[@name='Tags' and contains(@value, 'walker') and not(contains(@value, 'feral')) and not(contains(@value, 'radiated'))]/@value">,slow</append>
 	<append xpath="/entity_classes/entity_class/property[@name='Tags' and contains(@value, 'feral') and not(contains(@value, 'radiated'))]/@value">,fast</append>
 	<append xpath="/entity_classes/entity_class/property[@name='Tags' and contains(@value, 'radiated')]/@value">,green</append>
-	
-<!--========== Tier 1 Walker Zombies definition ==========-->
+
+	<set xpath="/entity_classes/entity_class[@name='zombieTemplateMale']/property[@name='TimeStayAfterDeath']/@value">300</set>
+	<set xpath="/entity_classes/entity_class[@name='zombieTemplateMale']/property[@name='DeadBodyHitPoints']/@value">350</set>
+
+
+	<!--========== Tier 1 Walker Zombies definition ==========-->
 	<append xpath="/entity_classes">
 		<!--添加凶残的游客-->
 		<entity_class name="[BBFFFF]【练气境】游客" extends="zombieTemplateMale">
@@ -33,11 +37,13 @@
 			<property name="HandItem" value="meleeHandZombieCop"/>
 			<property name="ExperienceGain" value="950"/><!-- XP strong -->
 			<property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
+			<property name="NavObject" value="[BBFFFF]【练气境】游客"/>
 			<effect_group name="Base Effects">
 				<passive_effect name="HealthMax" operation="base_set" value="400">
 					<requirement name="RandomRoll" seed_type="Item" min_max="100,150" operation="GTE" value="12"/>
 				</passive_effect>
 			</effect_group>
+			<drop event="Harvest" name="下品灵石" tag="基础物资Harvest" count="10,50"/>
 		</entity_class>
 
 		<entity_class name="[ADFEDC]【筑基境】游客" extends="zombieTemplateMale">
@@ -63,10 +69,10 @@
 			<property name="JumpMaxDistance" value=".8, 1.1"/>
 			<property name="HandItem" value="meleeHandZombieCop"/>
 			<property name="ExperienceGain" value="1050"/><!-- XP strong -->
-			<property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
+			<property name="LootDropEntityClass" value="练气境击杀奖励"/>
 			<effect_group name="Base Effects">
 				<passive_effect name="HealthMax" operation="base_set" value="500">
-					<requirement name="RandomRoll" seed_type="Item" min_max="100,250" operation="GTE" value="12"/>
+					<requirement name="RandomRoll" seed_type="Item" min_max="100,500" operation="GTE" value="12"/>
 				</passive_effect>
 			</effect_group>
 		</entity_class>

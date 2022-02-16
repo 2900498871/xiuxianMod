@@ -923,6 +923,22 @@
 		<property name="DescriptionKey" value="魂婴果Desc"/>
 	</item>
 
+	<!-- *****************************************刷怪书*********************************************** -->
+
+	<item name="[DAB1D5]练气境召唤书">
+		<property name="DescriptionKey" value="questitem_spirit_vengeance_description"/>
+		<property name="CustomIcon" value="challengeQuestMaster"/>
+		<property name="CustomIconTint" value="ddccbe"/>
+		<property name="Extends" value="questMaster"/>
+		<property class="Action0">
+			<property name="Class" value="Quest"/>
+			<property name="QuestGiven" value="[DAB1D5]练气境召唤书"/>
+			<property name="Delay" value="0"/>
+		</property>
+		<property name="Group" value="Special Items"/>
+	</item>
+
+
 
 	<!--*******************************************************武器***************************************************-->
 	<effect_group name="[CCFF80]★玄阶下品木棒">

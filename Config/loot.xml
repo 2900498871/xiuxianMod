@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configs>
+    <append xpath="/lootcontainers">
+        <!-- *** Quest_Rewards -->
+        <lootgroup name="练气境击杀奖励" loot_quality_template="questT1QualTemplate">
+            <item name="下品灵石" count="200,300" loot_prob_template="QuestT1Prob"/>
+        </lootgroup>
+    </append>
+</configs>
