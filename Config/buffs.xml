@@ -180,7 +180,7 @@
 		<effect_group>
 		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,结丹境,筑基境,元婴境,出窍境,分神境,炼虚境,空冥境,大乘境,天尊,仙人"/><!--在自身开始删除所有buff-->
 		   <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="1"/>
-		   <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="0.1"/>
+		   <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="3"/>
 		   
 		    <passive_effect name="HealthMax" operation="base_add" value="10"/><!-- 最大生命值 -->
 				<passive_effect name="WaterMax" operation="base_add" value="10"/><!-- 最大水份值 -->
@@ -209,8 +209,8 @@
 		<duration value="0"/>
 		<effect_group>
 		     <triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,练气,结丹境,元婴境,出窍境,分神境,炼虚境,空冥境,大乘境,天尊,仙人"/><!--在自身开始删除所有buff-->
-		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.9"/>
-		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="0.2"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.8"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="4"/>
 			
 			
 			<passive_effect name="HealthMax" operation="base_add" value="20"/><!-- 最大生命值 -->
@@ -242,8 +242,8 @@
 		<display_value_key value="[00FFFF]结丹境"/>
 		<effect_group>
 		 <triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,练气,筑基境,元婴境,出窍境,分神境,炼虚境,空冥境,大乘境,天尊,仙人"/><!--在自身开始删除所有buff-->
-		   <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.85"/>
-		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="0.5"/>
+		   <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.6"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="5"/>
 			
 		   <passive_effect name="HealthMax" operation="base_add" value="30"/><!-- 最大生命值 -->
 				<passive_effect name="WaterMax" operation="base_add" value="30"/><!-- 最大水份值 -->
@@ -276,8 +276,8 @@
 		<display_value_key value="[00FFFF]元婴境"/>
 		<effect_group>
 		 <triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,练气,筑基境,结丹境,出窍境,分神境,炼虚境,空冥境,大乘境,天尊,仙人"/><!--在自身开始删除所有buff-->
-		     <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.8"/>
-		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="0.7"/>
+		     <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.5"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="6"/>
 			 
 			 <passive_effect name="HealthMax" operation="base_add" value="50"/><!-- 最大生命值 -->
 				<passive_effect name="WaterMax" operation="base_add" value="50"/><!-- 最大水份值 -->
@@ -308,8 +308,8 @@
 		<display_value_key value="[00FFFF]出窍境"/>
 		<effect_group>
 		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,练气,筑基境,结丹境,元婴境,分神境,炼虚境,空冥境,大乘境,天尊,仙人"/><!--在自身开始删除所有buff-->
-           <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.75"/>
-		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="1"/>		  
+           <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.4"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="7"/>
 
 		  <passive_effect name="HealthMax" operation="base_add" value="75"/><!-- 最大生命值 -->
 				<passive_effect name="WaterMax" operation="base_add" value="75"/><!-- 最大水份值 -->
@@ -336,8 +336,8 @@
 		<display_value_key value="[00FFFF]分神境"/>
 		<effect_group>
 		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,练气,筑基境,结丹境,元婴境,出窍境,炼虚境,空冥境,大乘境,天尊,仙人"/><!--在自身开始删除所有buff-->
-		     <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.7"/>
-		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="1.2"/>
+		     <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.3"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="8"/>
 			 
 			 <passive_effect name="HealthMax" operation="base_add" value="100"/><!-- 最大生命值 -->
 				<passive_effect name="WaterMax" operation="base_add" value="100"/><!-- 最大水份值 -->
@@ -366,8 +366,8 @@
 		<display_value_key value="[00FFFF]炼虚境"/>
 		<effect_group>
 		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,练气,筑基境,结丹境,元婴境,出窍境,分神境,空冥境,大乘境,天尊,仙人"/><!--在自身开始删除所有buff-->
-		     <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.65"/>
-		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="1.4"/>
+		     <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.2"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="9"/>
 			 
 			 <passive_effect name="HealthMax" operation="base_add" value="150"/><!-- 最大生命值 -->
 				<passive_effect name="WaterMax" operation="base_add" value="150"/><!-- 最大水份值 -->
@@ -395,8 +395,8 @@
 		<display_value_key value="[00FFFF]空冥境"/>
 		<effect_group>
 		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,练气,筑基境,结丹境,元婴境,出窍境,分神境,炼虚境,大乘境,天尊,仙人"/><!--在自身开始删除所有buff-->
-		   <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.6"/>
-		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="1.6"/>
+		   <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.1"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="10"/>
 		   
 		   <passive_effect name="HealthMax" operation="base_add" value="200"/><!-- 最大生命值 -->
 				<passive_effect name="WaterMax" operation="base_add" value="200"/><!-- 最大水份值 -->
@@ -423,8 +423,8 @@
 		<display_value_key value="[00FFFF]大乘境"/>
 		<effect_group>
 		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,练气,筑基境,结丹境,元婴境,出窍境,分神境,炼虚境,空冥境,天尊,仙人"/><!--在自身开始删除所有buff-->
-		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.55"/>
-		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="1.8"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.08"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="12"/>
 			
 			<passive_effect name="HealthMax" operation="base_add" value="250"/><!-- 最大生命值 -->
 				<passive_effect name="WaterMax" operation="base_add" value="250"/><!-- 最大水份值 -->
@@ -451,8 +451,8 @@
 		<display_value_key value="[00FFFF]天尊"/>
 		<effect_group>
 		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,练气,筑基境,结丹境,元婴境,出窍境,分神境,炼虚境,空冥境,大乘境,仙人"/><!--在自身开始删除所有buff-->
-		   <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.5"/>
-		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="2"/>
+		   <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.06"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="15"/>
 		   
 		   <passive_effect name="HealthMax" operation="base_add" value="300"/><!-- 最大生命值 -->
 				<passive_effect name="WaterMax" operation="base_add" value="300"/><!-- 最大水份值 -->
@@ -478,8 +478,8 @@
 		<display_value_key value="[00FFFF]仙人"/>
 		<effect_group>
 		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,练气,筑基境,结丹境,元婴境,出窍境,分神境,炼虚境,空冥境,大乘境,天尊"/><!--在自身开始删除所有buff-->
-		   <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.45"/>
-		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="2.4"/>
+		   <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.03"/>
+		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="25"/>
 		   
 		   <passive_effect name="HealthMax" operation="base_add" value="500"/><!-- 最大生命值 -->
 				<passive_effect name="WaterMax" operation="base_add" value="500"/><!-- 最大水份值 -->
