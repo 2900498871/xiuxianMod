@@ -7,7 +7,6 @@
 		  <triggered_effect trigger="onSelfEnteredGame" target="self" action="AddBuff" buff="修为,练气,大道重生">
 		           <requirement name="NotHasBuff" buff="修为"/>
 				   <requirement name="NotHasBuff" buff="练气"/>
-				   <requirement name="NotHasBuff" buff="大道重生"/>
                    <requirement name="NotHasBuff" buff="筑基境"/>
 				   <requirement name="NotHasBuff" buff="结丹境"/>
 				   <requirement name="NotHasBuff" buff="元婴境"/> 
@@ -23,17 +22,7 @@
 		   <triggered_effect trigger="onSelfBuffUpdate" target="self" action="AddBuff" buff="天劫">
 		           <requirement name="CVarCompare" cvar="FYNL" operation="GTE" value="100"/> 
           </triggered_effect>
-        
- <!--在死亡先判断轮回次数是否大于3，如果大于等于3，当前境界死亡后轮回次数减1-->
-			<!--	<triggered_effect trigger="onSelfRespawn" action="ModifyCVar" cvar="CS" operation="subtract" value="1">
-				       <requirement name="CVarCompare" cvar="CS" operation="GTE" value="5"/>
-					   <requirement name="CVarCompare" cvar="CS" operation="LTE" value="7"/>
-				</triggered_effect>-->
 
-		  <!-- <triggered_effect trigger="onSelfRespawn" action="ModifyCVar" cvar="CS" operation="subtract" value="1">
-			   <requirement name="CVarCompare" cvar="CS" operation="GTE" value="5"/>
-			   <requirement name="CVarCompare" cvar="CS" operation="LTE" value="7"/>
-		   </triggered_effect>-->
         </effect_group>
 
 	</append>
@@ -57,25 +46,14 @@
 		<duration value="30"/>
 		<effect_group><!--每10s增加一次修为-->
 		       <triggered_effect trigger="onSelfBuffFinish" action="ModifyCVar" cvar="FYNL" operation="add" value="@FYXW"/>
-			   <!--轮回后格外增加修为数值-->
-			   <triggered_effect trigger="onSelfBuffFinish" action="ModifyCVar" cvar="FYNL" operation="add" value="0.01">
-			        <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="1"/><!--等于-->
-			  </triggered_effect>
-			  <triggered_effect trigger="onSelfBuffFinish" action="ModifyCVar" cvar="FYNL" operation="add" value="0.02">
-			        <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="2"/><!--等于-->
-			  </triggered_effect>
-			  <triggered_effect trigger="onSelfBuffFinish" action="ModifyCVar" cvar="FYNL" operation="add" value="0.03">
-			        <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="3"/><!--等于-->
-			  </triggered_effect>
-			  <triggered_effect trigger="onSelfBuffFinish" action="ModifyCVar" cvar="FYNL" operation="add" value="0.05">
-			        <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="4"/><!--等于-->
-			  </triggered_effect>
+
 		</effect_group>
 	</buff>
 	
    <buff name="天劫" name_key="[00FFFF]天劫" description_key="[FFFF00]天劫.[FF0000]注意：你正在渡劫！将持续掉血，请注意！" tooltip_key="[00FFFF]天劫" icon="ui_game_symbol_electric_power" icon_color="255,0,255" hidden="false" remove_on_death="false">
 		<stack_type value="ignore"/>
 		<duration value="30"/>
+	   <display_value_key value="[00FFFF]天劫"/>
 		<effect_group>
 		    <triggered_effect trigger="onSelfBuffUpdate" action="ModifyCVar" cvar="FYNL" operation="set" value="0"/>
 			<triggered_effect trigger="onSelfBuffStart" action="AttachParticleEffectToEntity" particle="p_electric_shock" parent_transform="Spine1" local_offset="0,-.2,0"/>
@@ -100,33 +78,7 @@
 			<triggered_effect trigger="onSelfBuffFinish" action="AddBuff" buff="筑基境">
 			            <requirement name="HasBuff" buff="练气"/>
 			</triggered_effect>
-			
-			 <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="multiply" value="0.99">
-		         <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="1"/><!--等于-->
-		    </triggered_effect>
-			 <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="multiply" value="0.985">
-		          <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="2"/><!--等于-->
-		    </triggered_effect>
-			 <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="multiply" value="0.97">
-		         <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="3"/><!--等于-->
-		    </triggered_effect>
-			 <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="multiply" value="0.955">
-		          <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="4"/><!--等于-->
-		    </triggered_effect>
 
-			
-			 <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="2">
-		         <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="1"/><!--等于-->
-		    </triggered_effect>
-			 <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="4">
-		          <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="2"/><!--等于-->
-		    </triggered_effect>
-			 <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="6">
-		         <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="3"/><!--等于-->
-		    </triggered_effect>
-			 <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="8">
-		          <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="4"/><!--等于-->
-		    </triggered_effect>
 
 		</effect_group>
 		
@@ -211,18 +163,8 @@
 		   <triggered_effect trigger="onSelfBuffUpdate" action="ModifyStats" stat="Health" operation="subtract" value="@FYSH">
 			   <requirement name="HasBuff" buff="天尊"/>
 		   </triggered_effect>
-		   <triggered_effect trigger="onSelfBuffFinish" action="AddBuff" buff="练气">
-			   <requirement name="HasBuff" buff="天尊"/>
-			   <requirement name="CVarCompare" cvar="FYCS" operation="GTE" value="0"/><!--大于等于0-->
-			   <requirement name="CVarCompare" cvar="FYCS" operation="LTE" value="4"/><!--小于等于7-->
-		   </triggered_effect>
-		   <triggered_effect trigger="onSelfBuffFinish" action="ModifyCVar" cvar="FYCS" operation="add" value="1">
-			   <requirement name="CVarCompare" cvar="FYCS" operation="GTE" value="0"/><!--大于等于0-->
-			   <requirement name="CVarCompare" cvar="FYCS" operation="LTE" value="4"/><!--小于等于7-->
-			   <requirement name="HasBuff" buff="天尊"/>
-		   </triggered_effect>
+
 		   <triggered_effect trigger="onSelfBuffFinish" action="AddBuff" buff="仙人">
-			   <requirement name="CVarCompare" cvar="FYCS" operation="GTE" value="5"/><!--大于等于0-->
 			   <requirement name="HasBuff" buff="天尊"/>
 		   </triggered_effect>
 	   </effect_group>
@@ -232,7 +174,7 @@
 
 	
       <buff name="练气" name_key="[00FFFF]练气" description_key="练气Desc" tooltip_key="[00FFFF]练气" icon="ui_game_symbol_intellect" icon_color="0,255,255" hidden="false" remove_on_death="false">
-
+		  <display_value_key value="[00FFFF]练气"/>
 		<stack_type value="ignore"/>
 		<duration value="0"/>
 		<effect_group>
@@ -240,10 +182,10 @@
 		   <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="1"/>
 		   <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="0.1"/>
 		   
-		    <passive_effect name="HealthMax" operation="base_add" value="2"/><!-- 最大生命值 -->
-				<passive_effect name="WaterMax" operation="base_add" value="2"/><!-- 最大水份值 -->
-				<passive_effect name="StaminaMax" operation="base_add" value="2"/><!-- 最大耐力值 -->
-				<passive_effect name="FoodMax" operation="base_add" value="2"/><!-- 最大食物份值 -->
+		    <passive_effect name="HealthMax" operation="base_add" value="10"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="10"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="10"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="10"/><!-- 最大食物份值 -->
 				
 				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.02"/>
 				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.02" />
@@ -258,57 +200,12 @@
 		</effect_group>
 	</buff>
 	
-	<buff name="大道重生" name_key="[FFFF00]大道轮回" description_key="重生轮回Desc" tooltip_key="[FFFF00]大道轮回，最高轮回次数为5，当轮回次数为5时进入仙人境界！" icon="ui_game_symbol_intellect" icon_color="255,255,0" hidden="false" remove_on_death="false">
-		<stack_type value="ignore"/>
-		<duration value="0"/>
-		<display_value value="FYCS"/>
-		<display_value_key value="[00FFFF]轮回次数[FFFFFF]:[FFFF00]{0}[FFFFFF]"/>
-		<effect_group>
-		      <passive_effect name="HealthMax" operation="base_add" target="self" value="100">
-			        <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="1"/><!--等于-->
-			  </passive_effect>
-			  <passive_effect name="AttacksPerMinute" operation="perc_add" value=".5">
-			          <requirement name="CVarCompare" cvar="FYCS" operation="GTE" value="1"/><!--等于-->
-			  </passive_effect>
-			  
-			  
-			  <passive_effect name="HarvestCount" operation="perc_add" value="1" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest">
-			           <requirement name="CVarCompare" cvar="FYCS" operation="GTE" value="2"/><!--等于-->
-			  </passive_effect>
-			  <passive_effect name="HealthMax" operation="base_add" target="self" value="200">
-			        <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="2"/><!--等于-->
-			  </passive_effect>
-			  
-			  
-			  <passive_effect name="HealthMax" operation="base_add" target="self" value="300">
-			        <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="3"/><!--等于-->
-			  </passive_effect>
-			  <passive_effect name="EntityDamage" operation="perc_add" value="1" tags="melee">
-			         <requirement name="CVarCompare" cvar="FYCS" operation="GTE" value="3"/><!--等于-->
-			  </passive_effect>
-			  
-			  <passive_effect name="HealthMax" operation="base_add" target="self" value="400">
-			        <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="4"/><!--等于-->
-			  </passive_effect>
-			  <passive_effect name="EntityDamage" operation="perc_add" value="1" tags="gun">
-			          <requirement name="CVarCompare" cvar="FYCS" operation="GTE" value="4"/><!--等于-->
-			  </passive_effect>
-			  
-			  <passive_effect name="HealthMax" operation="base_add" target="self" value="500">
-			        <requirement name="CVarCompare" cvar="FYCS" operation="Equals" value="5"/><!--等于-->
-			  </passive_effect>
-			  <passive_effect name="JumpStrength" operation="perc_add" value="1"><!-- 跳跃高度 -->
-			            <requirement name="CVarCompare" cvar="FYCS" operation="GTE" value="5"/><!--等于-->
-			  </passive_effect>
-			  <!--后续需要自己写，前提是先把最后境界的值改动-->
-		     
-			
-		</effect_group>
-	</buff>
+
 	
    <buff name="筑基境" name_key="[00FFFF]筑基境" description_key="筑基境Desc" tooltip_key="[00FFFF]筑基境" icon="ui_game_symbol_intellect" icon_color="0,255,255" hidden="false" remove_on_death="false">
 
 		<stack_type value="ignore"/>
+	   <display_value_key value="[00FFFF]筑基境"/>
 		<duration value="0"/>
 		<effect_group>
 		     <triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,练气,结丹境,元婴境,出窍境,分神境,炼虚境,空冥境,大乘境,天尊,仙人"/><!--在自身开始删除所有buff-->
@@ -316,20 +213,20 @@
 		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="0.2"/>
 			
 			
-			<passive_effect name="HealthMax" operation="base_add" value="5"/><!-- 最大生命值 -->
-				<passive_effect name="WaterMax" operation="base_add" value="5"/><!-- 最大水份值 -->
-				<passive_effect name="StaminaMax" operation="base_add" value="5"/><!-- 最大耐力值 -->
-				<passive_effect name="FoodMax" operation="base_add" value="5"/><!-- 最大食物份值 -->
+			<passive_effect name="HealthMax" operation="base_add" value="20"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="20"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="20"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="20"/><!-- 最大食物份值 -->
 				
-				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.02"/>
-				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.02" />
-                <passive_effect name="CraftingTime" operation="perc_add" value="-.02"/>
-				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.02"/> 
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.03"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.03" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.03"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.03"/>
 				
-				<passive_effect name="EntityDamage" operation="perc_add" value=".02" tags="melee"/>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".02" tags="gun"/>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".02" tags="perkArchery"/>
-				<passive_effect name="HarvestCount" operation="perc_add" value=".02" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".03" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".03" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".03" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".03" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
 				
 				
 				<triggered_effect trigger="onSelfRespawn" action="AddBuff"  target="self" buff="练气"/>
@@ -342,25 +239,26 @@
 
 		<stack_type value="ignore"/>
 		<duration value="0"/>
+		<display_value_key value="[00FFFF]结丹境"/>
 		<effect_group>
 		 <triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,练气,筑基境,元婴境,出窍境,分神境,炼虚境,空冥境,大乘境,天尊,仙人"/><!--在自身开始删除所有buff-->
 		   <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.85"/>
 		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="0.5"/>
 			
-		   <passive_effect name="HealthMax" operation="base_add" value="8"/><!-- 最大生命值 -->
-				<passive_effect name="WaterMax" operation="base_add" value="8"/><!-- 最大水份值 -->
-				<passive_effect name="StaminaMax" operation="base_add" value="8"/><!-- 最大耐力值 -->
-				<passive_effect name="FoodMax" operation="base_add" value="8"/><!-- 最大食物份值 -->
+		   <passive_effect name="HealthMax" operation="base_add" value="30"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="30"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="30"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="30"/><!-- 最大食物份值 -->
 				
-				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.02"/>
-				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.02" />
-                <passive_effect name="CraftingTime" operation="perc_add" value="-.02"/>
-				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.02"/> 
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.05"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.05" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.05"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.05"/>
 				
-				<passive_effect name="EntityDamage" operation="perc_add" value=".02" tags="melee"/>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".02" tags="gun"/>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".02" tags="perkArchery"/>
-				<passive_effect name="HarvestCount" operation="perc_add" value=".02" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".05" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".05" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".05" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".05" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
 				
 
 				
@@ -375,25 +273,26 @@
 
 		<stack_type value="ignore"/>
 		<duration value="0"/>
+		<display_value_key value="[00FFFF]元婴境"/>
 		<effect_group>
 		 <triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,练气,筑基境,结丹境,出窍境,分神境,炼虚境,空冥境,大乘境,天尊,仙人"/><!--在自身开始删除所有buff-->
 		     <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.8"/>
 		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="0.7"/>
 			 
-			 <passive_effect name="HealthMax" operation="base_add" value="10"/><!-- 最大生命值 -->
-				<passive_effect name="WaterMax" operation="base_add" value="10"/><!-- 最大水份值 -->
-				<passive_effect name="StaminaMax" operation="base_add" value="10"/><!-- 最大耐力值 -->
-				<passive_effect name="FoodMax" operation="base_add" value="10"/><!-- 最大食物份值 -->
+			 <passive_effect name="HealthMax" operation="base_add" value="50"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="50"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="50"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="50"/><!-- 最大食物份值 -->
 				
-				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.03"/>
-				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.03" />
-                <passive_effect name="CraftingTime" operation="perc_add" value="-.03"/>
-				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.03"/> 
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.08"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.08" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.08"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.08"/>
 				
-				<passive_effect name="EntityDamage" operation="perc_add" value=".03" tags="melee"/>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".03" tags="gun"/>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".03" tags="perkArchery"/>
-				<passive_effect name="HarvestCount" operation="perc_add" value=".03" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".08" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".08" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".08" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".08" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
 
 				
 				<triggered_effect trigger="onSelfRespawn" action="AddBuff"  target="self" buff="结丹境"/>
@@ -406,25 +305,26 @@
 
 		<stack_type value="ignore"/>
 		<duration value="0"/>
+		<display_value_key value="[00FFFF]出窍境"/>
 		<effect_group>
 		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,练气,筑基境,结丹境,元婴境,分神境,炼虚境,空冥境,大乘境,天尊,仙人"/><!--在自身开始删除所有buff-->
            <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.75"/>
 		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="1"/>		  
 
-		  <passive_effect name="HealthMax" operation="base_add" value="12"/><!-- 最大生命值 -->
-				<passive_effect name="WaterMax" operation="base_add" value="12"/><!-- 最大水份值 -->
-				<passive_effect name="StaminaMax" operation="base_add" value="12"/><!-- 最大耐力值 -->
-				<passive_effect name="FoodMax" operation="base_add" value="12"/><!-- 最大食物份值 -->
+		  <passive_effect name="HealthMax" operation="base_add" value="75"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="75"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="75"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="75"/><!-- 最大食物份值 -->
 				
-				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.04"/>
-				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.04" />
-                <passive_effect name="CraftingTime" operation="perc_add" value="-.04"/>
-				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.04"/> 
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.1"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.1" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.1"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.1"/>
 				
-				<passive_effect name="EntityDamage" operation="perc_add" value=".04" tags="melee"/>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".04" tags="gun"/>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".04" tags="perkArchery"/>
-				<passive_effect name="HarvestCount" operation="perc_add" value=".04" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".1" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".1" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".1" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".1" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
 				<triggered_effect trigger="onSelfRespawn" action="AddBuff"  target="self" buff="元婴境"/> 
 			
 		</effect_group>
@@ -433,25 +333,26 @@
 
 		<stack_type value="ignore"/>
 		<duration value="0"/>
+		<display_value_key value="[00FFFF]分神境"/>
 		<effect_group>
 		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,练气,筑基境,结丹境,元婴境,出窍境,炼虚境,空冥境,大乘境,天尊,仙人"/><!--在自身开始删除所有buff-->
 		     <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.7"/>
 		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="1.2"/>
 			 
-			 <passive_effect name="HealthMax" operation="base_add" value="15"/><!-- 最大生命值 -->
-				<passive_effect name="WaterMax" operation="base_add" value="15"/><!-- 最大水份值 -->
-				<passive_effect name="StaminaMax" operation="base_add" value="15"/><!-- 最大耐力值 -->
-				<passive_effect name="FoodMax" operation="base_add" value="15"/><!-- 最大食物份值 -->
+			 <passive_effect name="HealthMax" operation="base_add" value="100"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="100"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="100"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="100"/><!-- 最大食物份值 -->
 				
-				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.05"/>
-				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.05" />
-                <passive_effect name="CraftingTime" operation="perc_add" value="-.05"/>
-				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.05"/> 
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.15"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.15" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.15"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.15"/>
 				
-				<passive_effect name="EntityDamage" operation="perc_add" value=".05" tags="melee"/>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".05" tags="gun"/>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".05" tags="perkArchery"/>
-				<passive_effect name="HarvestCount" operation="perc_add" value=".05" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".15" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".15" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".15" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".15" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
 				
 
 				<triggered_effect trigger="onSelfRespawn" action="AddBuff"  target="self" buff="出窍境"/>
@@ -462,25 +363,26 @@
 
 		<stack_type value="ignore"/>
 		<duration value="0"/>
+		<display_value_key value="[00FFFF]炼虚境"/>
 		<effect_group>
 		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,练气,筑基境,结丹境,元婴境,出窍境,分神境,空冥境,大乘境,天尊,仙人"/><!--在自身开始删除所有buff-->
 		     <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.65"/>
 		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="1.4"/>
 			 
-			 <passive_effect name="HealthMax" operation="base_add" value="18"/><!-- 最大生命值 -->
-				<passive_effect name="WaterMax" operation="base_add" value="18"/><!-- 最大水份值 -->
-				<passive_effect name="StaminaMax" operation="base_add" value="18"/><!-- 最大耐力值 -->
-				<passive_effect name="FoodMax" operation="base_add" value="18"/><!-- 最大食物份值 -->
+			 <passive_effect name="HealthMax" operation="base_add" value="150"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="150"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="150"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="150"/><!-- 最大食物份值 -->
 				
-				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.08"/>
-				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.08" />
-                <passive_effect name="CraftingTime" operation="perc_add" value="-.08"/>
-				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.08"/> 
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.2"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.2" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.2"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.2"/>
 				
-				<passive_effect name="EntityDamage" operation="perc_add" value=".08" tags="melee"/>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".08" tags="gun"/>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".08" tags="perkArchery"/>
-				<passive_effect name="HarvestCount" operation="perc_add" value=".08" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".2" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".2" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".2" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".2" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
 				
 				<triggered_effect trigger="onSelfRespawn" action="AddBuff"  target="self" buff="分神境"/>
 			
@@ -490,25 +392,26 @@
 
 		<stack_type value="ignore"/>
 		<duration value="0"/>
+		<display_value_key value="[00FFFF]空冥境"/>
 		<effect_group>
 		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,练气,筑基境,结丹境,元婴境,出窍境,分神境,炼虚境,大乘境,天尊,仙人"/><!--在自身开始删除所有buff-->
 		   <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.6"/>
 		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="1.6"/>
 		   
-		   <passive_effect name="HealthMax" operation="base_add" value="20"/><!-- 最大生命值 -->
-				<passive_effect name="WaterMax" operation="base_add" value="20"/><!-- 最大水份值 -->
-				<passive_effect name="StaminaMax" operation="base_add" value="20"/><!-- 最大耐力值 -->
-				<passive_effect name="FoodMax" operation="base_add" value="20"/><!-- 最大食物份值 -->
+		   <passive_effect name="HealthMax" operation="base_add" value="200"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="200"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="200"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="200"/><!-- 最大食物份值 -->
 				
-				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.09"/>
-				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.09" />
-                <passive_effect name="CraftingTime" operation="perc_add" value="-.09"/>
-				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.09"/> 
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.25"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.25" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.25"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.25"/>
 				
-				<passive_effect name="EntityDamage" operation="perc_add" value=".09" tags="melee"/>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".09" tags="gun"/>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".09" tags="perkArchery"/>
-				<passive_effect name="HarvestCount" operation="perc_add" value=".09" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".25" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".25" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".25" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".25" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
 				<triggered_effect trigger="onSelfRespawn" action="AddBuff"  target="self" buff="炼虚境"/>
 			
 		</effect_group>
@@ -517,25 +420,26 @@
 
 		<stack_type value="ignore"/>
 		<duration value="0"/>
+		<display_value_key value="[00FFFF]大乘境"/>
 		<effect_group>
 		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,练气,筑基境,结丹境,元婴境,出窍境,分神境,炼虚境,空冥境,天尊,仙人"/><!--在自身开始删除所有buff-->
 		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.55"/>
 		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="1.8"/>
 			
-			<passive_effect name="HealthMax" operation="base_add" value="25"/><!-- 最大生命值 -->
-				<passive_effect name="WaterMax" operation="base_add" value="25"/><!-- 最大水份值 -->
-				<passive_effect name="StaminaMax" operation="base_add" value="25"/><!-- 最大耐力值 -->
-				<passive_effect name="FoodMax" operation="base_add" value="25"/><!-- 最大食物份值 -->
+			<passive_effect name="HealthMax" operation="base_add" value="250"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="250"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="250"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="250"/><!-- 最大食物份值 -->
 				
-				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.15"/>
-				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.15" />
-                <passive_effect name="CraftingTime" operation="perc_add" value="-.15"/>
-				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.15"/> 
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.3"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.3" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-0.3"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.3"/>
 				
-				<passive_effect name="EntityDamage" operation="perc_add" value=".15" tags="melee"/>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".15" tags="gun"/>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".15" tags="perkArchery"/>
-				<passive_effect name="HarvestCount" operation="perc_add" value=".15" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".3" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".3" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".3" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".3" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
 				<triggered_effect trigger="onSelfRespawn" action="AddBuff"  target="self" buff="空冥境"/>
 			
 		</effect_group>
@@ -544,25 +448,26 @@
 
 		<stack_type value="ignore"/>
 		<duration value="0"/>
+		<display_value_key value="[00FFFF]天尊"/>
 		<effect_group>
 		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,练气,筑基境,结丹境,元婴境,出窍境,分神境,炼虚境,空冥境,大乘境,仙人"/><!--在自身开始删除所有buff-->
 		   <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.5"/>
 		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="2"/>
 		   
-		   <passive_effect name="HealthMax" operation="base_add" value="30"/><!-- 最大生命值 -->
-				<passive_effect name="WaterMax" operation="base_add" value="30"/><!-- 最大水份值 -->
-				<passive_effect name="StaminaMax" operation="base_add" value="30"/><!-- 最大耐力值 -->
-				<passive_effect name="FoodMax" operation="base_add" value="30"/><!-- 最大食物份值 -->
+		   <passive_effect name="HealthMax" operation="base_add" value="300"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="300"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="300"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="300"/><!-- 最大食物份值 -->
 				
-				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.16"/>
-				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.16" />
-                <passive_effect name="CraftingTime" operation="perc_add" value="-.16"/>
-				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.16"/> 
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.4"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.4" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.4"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.4"/>
 				
-				<passive_effect name="EntityDamage" operation="perc_add" value=".16" tags="melee"/>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".16" tags="gun"/>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".16" tags="perkArchery"/>
-				<passive_effect name="HarvestCount" operation="perc_add" value=".16" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".4" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".4" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".4" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".4" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
 				<triggered_effect trigger="onSelfRespawn" action="AddBuff"  target="self" buff="大乘境"/>
 			
 		</effect_group>
@@ -570,25 +475,26 @@
 	<buff name="仙人" name_key="[00FFFF]仙人" description_key="仙人Desc" tooltip_key="[00FFFF]仙人" icon="ui_game_symbol_intellect" icon_color="0,255,255" hidden="false" remove_on_death="false">
 		<stack_type value="ignore"/>
 		<duration value="0"/>
+		<display_value_key value="[00FFFF]仙人"/>
 		<effect_group>
 		<triggered_effect trigger="onSelfBuffStart" action="RemoveBuff"  target="self" buff="天劫,练气,筑基境,结丹境,元婴境,出窍境,分神境,炼虚境,空冥境,大乘境,天尊"/><!--在自身开始删除所有buff-->
 		   <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYXW" operation="set" value="0.45"/>
 		    <triggered_effect trigger="onSelfBuffStart" action="ModifyCVar" cvar="FYSH" operation="set" value="2.4"/>
 		   
-		   <passive_effect name="HealthMax" operation="base_add" value="35"/><!-- 最大生命值 -->
-				<passive_effect name="WaterMax" operation="base_add" value="35"/><!-- 最大水份值 -->
-				<passive_effect name="StaminaMax" operation="base_add" value="35"/><!-- 最大耐力值 -->
-				<passive_effect name="FoodMax" operation="base_add" value="35"/><!-- 最大食物份值 -->
+		   <passive_effect name="HealthMax" operation="base_add" value="500"/><!-- 最大生命值 -->
+				<passive_effect name="WaterMax" operation="base_add" value="500"/><!-- 最大水份值 -->
+				<passive_effect name="StaminaMax" operation="base_add" value="500"/><!-- 最大耐力值 -->
+				<passive_effect name="FoodMax" operation="base_add" value="500"/><!-- 最大食物份值 -->
 				
-				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.20"/>
-				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.20" />
-                <passive_effect name="CraftingTime" operation="perc_add" value="-.20"/>
-				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.20"/> 
+				<passive_effect name="AttacksPerMinute" operation="perc_add" value="0.5"/>
+				<passive_effect name="PlayerExpGain" operation="perc_add" value="0.5" />
+                <passive_effect name="CraftingTime" operation="perc_add" value="-.5"/>
+				<passive_effect name="ReloadSpeedMultiplier" operation="perc_add" value="0.5"/>
 				
-				<passive_effect name="EntityDamage" operation="perc_add" value=".20" tags="melee"/>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".20" tags="gun"/>
-				<passive_effect name="EntityDamage" operation="perc_add" value=".20" tags="perkArchery"/>
-				<passive_effect name="HarvestCount" operation="perc_add" value=".20" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".5" tags="melee"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".5" tags="gun"/>
+				<passive_effect name="EntityDamage" operation="perc_add" value=".5" tags="perkArchery"/>
+				<passive_effect name="HarvestCount" operation="perc_add" value=".5" tags="oreWoodHarvest, allHarvest, cropHarvest, wildCropsHarvest, butcherHarvest"/>
 		</effect_group>
 	</buff>
 
