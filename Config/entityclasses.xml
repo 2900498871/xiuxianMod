@@ -35,15 +35,14 @@
 			<property name="MoveSpeedAggro" value="0.2, 1.2"/>
 			<property name="JumpMaxDistance" value=".8, 1.1"/>
 			<property name="HandItem" value="meleeHandZombieCop"/>
-			<property name="ExperienceGain" value="950"/><!-- XP strong -->
+			<property name="ExperienceGain" value="1050"/><!-- XP strong -->
 			<property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
-			<property name="NavObject" value="[BBFFFF]【练气境】游客"/>
 			<effect_group name="Base Effects">
-				<passive_effect name="HealthMax" operation="base_set" value="400">
-					<requirement name="RandomRoll" seed_type="Item" min_max="100,150" operation="GTE" value="12"/>
+				<passive_effect name="HealthMax" operation="base_set" value="300">
+					<requirement name="RandomRoll" seed_type="Item" min_max="100,500" operation="GTE" value="12"/>
 				</passive_effect>
 			</effect_group>
-			<drop event="Harvest" name="下品灵石" tag="基础物资Harvest" count="10,50"/>
+
 		</entity_class>
 
 		<entity_class name="[ADFEDC]【筑基境】游客" extends="zombieTemplateMale">
@@ -69,7 +68,7 @@
 			<property name="JumpMaxDistance" value=".8, 1.1"/>
 			<property name="HandItem" value="meleeHandZombieCop"/>
 			<property name="ExperienceGain" value="1050"/><!-- XP strong -->
-			<property name="LootDropEntityClass" value="练气境击杀奖励"/>
+			<property name="LootDropEntityClass" value="EntityLootContainerStrong"/>
 			<effect_group name="Base Effects">
 				<passive_effect name="HealthMax" operation="base_set" value="500">
 					<requirement name="RandomRoll" seed_type="Item" min_max="100,500" operation="GTE" value="12"/>
