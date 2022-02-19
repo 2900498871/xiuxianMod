@@ -1,0 +1,80 @@
+﻿<config>
+	<append xpath="/progression/attributes">
+		<attribute name="[FFD700]修仙" name_key="[FFD700]修仙" desc_key="[FFD700]解锁技能制作高阶武器,高阶丹药,高阶防具，高阶配件" icon="ui_game_symbol_twitch_confused_controls" min_level="1" max_level="10" base_skill_point_cost="1" cost_multiplier_per_level="1.14">
+			<level_requirements level="1"><requirement name="PlayerLevel" operation="GTE" value="1" desc_key="修仙1级"/></level_requirements>
+			<level_requirements level="2"><requirement name="PlayerLevel" operation="GTE" value="1" desc_key="修仙2级"/></level_requirements>
+			<level_requirements level="3"><requirement name="PlayerLevel" operation="GTE" value="1" desc_key="修仙3级"/></level_requirements>
+			<level_requirements level="4"><requirement name="PlayerLevel" operation="GTE" value="1" desc_key="修仙4级"/></level_requirements>
+			<level_requirements level="5"><requirement name="PlayerLevel" operation="GTE" value="1" desc_key="修仙5级"/></level_requirements>
+			<level_requirements level="6"><requirement name="PlayerLevel" operation="GTE" value="1" desc_key="修仙6级"/></level_requirements>
+			<level_requirements level="7"><requirement name="PlayerLevel" operation="GTE" value="1" desc_key="修仙7级"/></level_requirements>
+			<level_requirements level="8"><requirement name="PlayerLevel" operation="GTE" value="1" desc_key="修仙8级"/></level_requirements>
+			<level_requirements level="9"><requirement name="PlayerLevel" operation="GTE" value="1" desc_key="修仙9级"/></level_requirements>
+			<level_requirements level="10"><requirement name="PlayerLevel" operation="GTE" value="1" desc_key="修仙10级"/></level_requirements>
+			<effect_group>
+				<requirement name="ItemHasTags" tags="修仙Mod"/>
+				<effect_description level="1" desc_key="练气" desc_base="吸收灵气" long_desc_key="增强体质，锻骨炼体，感悟灵气"/>
+				<effect_description level="2" desc_key="筑基境" desc_base="锻炼基础" long_desc_key="压缩气旋，筑就丹田，凝气成液"/>
+				<effect_description level="3" desc_key="结丹境" desc_base="铸就丹田" long_desc_key="化液为固，炼固为金，金丹铸型"/>
+				<effect_description level="4" desc_key="元婴境" desc_base="化丹为婴" long_desc_key="先破金丹，后结成婴"/>
+				<effect_description level="5" desc_key="出窍境" desc_base="元婴生长" long_desc_key="体内元婴倍增，元婴向元神过渡"/>
+				<effect_description level="6" desc_key="分神境" desc_base="练就分神" long_desc_key="婴中炼神，可元婴出窍"/>
+				<effect_description level="7" desc_key="炼虚境" desc_base="本源化虚" long_desc_key="本源圆满，感悟大道，本源化虚"/>
+				<effect_description level="8" desc_key="空冥境" desc_base="炼道融婴" long_desc_key="神婴相合，炼道融婴，去芜存菁"/>
+				<effect_description level="9" desc_key="大乘境" desc_base="返璞归真" long_desc_key="万术归一，返璞归真，浑然天成"/>
+				<effect_description level="10" desc_key="天尊" desc_base="感悟天道" long_desc_key="感悟天道，以身应劫，破道成仙"/>
+			</effect_group>
+		</attribute>
+	</append>
+
+	<append xpath="/progression/skills">
+		<skill name="武器专家" parent="[FFD700]修仙" name_key="武器专家" desc_key="解锁修仙武器制作" icon="ui_game_symbol_boxer"><effect_group/></skill>
+	</append>
+
+	<append xpath="/progression/perks">
+		<perk name="玄阶武器" parent="武器专家" name_key="玄级武器" desc_key="武器专家" icon="ui_game_symbol_map_cursor" min_level="0" max_level="3" base_skill_point_cost="1" cost_multiplier_per_level="1">
+			<level_requirements level="1"><requirement name="ProgressionLevel" progression_name="[FFD700]修仙" operation="GTE" value="1" desc_key="解锁修仙1级"/></level_requirements>
+			<level_requirements level="2"><requirement name="ProgressionLevel" progression_name="[FFD700]修仙" operation="GTE" value="3" desc_key="解锁修仙3级"/></level_requirements>
+			<level_requirements level="3"><requirement name="ProgressionLevel" progression_name="[FFD700]修仙" operation="GTE" value="5" desc_key="解锁修仙5级"/></level_requirements>
+			<effect_group>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1,5" value="1" tags="玄阶下品武器"/>
+				<passive_effect name="CraftingTier" operation="base_add" level="1,2,3,4,5" value="1,2,3,4,4" tags="玄阶武器"/>
+			</effect_group>
+			<effect_group>
+				<effect_description level="1" desc_base="玄阶下品武器" long_desc_key="解锁技能制作玄阶下品武器"/>
+				<effect_description level="2" desc_base="玄阶中品武器" long_desc_key="解锁技能制作玄阶中品武器"/>
+				<effect_description level="3" desc_base="玄阶上品武器" long_desc_key="解锁技能制作玄阶上品武器"/>
+			</effect_group>
+		</perk>
+
+		<perk name="天阶武器" parent="武器专家" name_key="天阶武器" desc_key="解锁天阶武器制作" icon="ui_game_symbol_explosion"  min_level="0" max_level="3" base_skill_point_cost="1" cost_multiplier_per_level="1">
+			<level_requirements level="1"><requirement name="ProgressionLevel" progression_name="[FFD700]修仙" operation="GTE" value="6" desc_key="解锁修仙6级"/></level_requirements>
+			<level_requirements level="2"><requirement name="ProgressionLevel" progression_name="[FFD700]修仙" operation="GTE" value="8" desc_key="解锁修仙8级"/></level_requirements>
+			<level_requirements level="3"><requirement name="ProgressionLevel" progression_name="[FFD700]修仙" operation="GTE" value="9" desc_key="解锁修仙9级"/></level_requirements>
+
+			<effect_group>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1,3" value="1" tags="gunRifleT1HuntingRifle"/>
+			</effect_group>
+			<effect_group>
+				<effect_description level="1" desc_base="天阶下品武器" long_desc_key="解锁技能制作天阶下品武器"/>
+				<effect_description level="2" desc_base="天阶中品武器" long_desc_key="解锁技能制作天阶中品武器"/>
+				<effect_description level="3" desc_base="天阶上品武器" long_desc_key="解锁技能制作天阶上品武器"/>
+			</effect_group>
+		</perk>
+
+		<perk name="神器" parent="武器专家" name_key="制作神器" desc_key="解锁制作神器" icon="ui_game_symbol_spear"  min_level="0" max_level="1" base_skill_point_cost="5" cost_multiplier_per_level="1">
+			<level_requirements level="1">
+				<requirement name="ProgressionLevel" progression_name="[FFD700]修仙" operation="GTE" value="10" desc_key="解锁修仙10级"/>
+			</level_requirements>
+			<effect_group>
+				<requirement name="ProgressionLevel" progression_name="神器" operation="Equals" value="10"/>
+				<effect_description level="1" desc_base="神阶武器" long_desc_key="解锁技能制作神阶武器"/>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1" value="1" tags="神阶武器解锁"/>
+			</effect_group>
+		</perk>
+
+
+	</append>
+
+
+</config>
