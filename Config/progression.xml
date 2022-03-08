@@ -37,13 +37,15 @@
 			<level_requirements level="2"><requirement name="ProgressionLevel" progression_name="[FFD700]修仙" operation="GTE" value="3" desc_key="解锁修仙3级"/></level_requirements>
 			<level_requirements level="3"><requirement name="ProgressionLevel" progression_name="[FFD700]修仙" operation="GTE" value="5" desc_key="解锁修仙5级"/></level_requirements>
 			<effect_group>
-				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1,5" value="1" tags="玄阶下品武器"/>
-				<passive_effect name="CraftingTier" operation="base_add" level="1,2,3,4,5" value="1,2,3,4,4" tags="玄阶武器"/>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1,3" value="1" tags="玄阶下品武器"/>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="2,3" value="1" tags="玄阶中品武器"/>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="3,3" value="1" tags="玄阶上品武器"/>
+				<passive_effect name="CraftingTier" operation="base_add" level="1,2,3" value="0,2,5" tags="玄阶武器"/>
 			</effect_group>
 			<effect_group>
-				<effect_description level="1" desc_base="玄阶下品武器" long_desc_key="解锁技能制作玄阶下品武器"/>
-				<effect_description level="2" desc_base="玄阶中品武器" long_desc_key="解锁技能制作玄阶中品武器"/>
-				<effect_description level="3" desc_base="玄阶上品武器" long_desc_key="解锁技能制作玄阶上品武器"/>
+				<effect_description level="1" desc_base="玄阶下品武器" long_desc_key="解锁技能制作玄阶下品武器,制作等级一的玄阶武器"/>
+				<effect_description level="2" desc_base="玄阶中品武器" long_desc_key="解锁技能制作玄阶中品武器,制作等级三的玄阶武器"/>
+				<effect_description level="3" desc_base="玄阶上品武器" long_desc_key="解锁技能制作玄阶上品武器,制作等级六的玄阶武器"/>
 			</effect_group>
 		</perk>
 
@@ -53,12 +55,15 @@
 			<level_requirements level="3"><requirement name="ProgressionLevel" progression_name="[FFD700]修仙" operation="GTE" value="9" desc_key="解锁修仙9级"/></level_requirements>
 
 			<effect_group>
-				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1,3" value="1" tags="gunRifleT1HuntingRifle"/>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1,3" value="1" tags="天阶下品武器"/>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="2,3" value="1" tags="天阶中品武器"/>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="3,3" value="1" tags="天阶上品武器"/>
+				<passive_effect name="CraftingTier" operation="base_add" level="1,2,3" value="0,2,5" tags="天阶武器"/>
 			</effect_group>
 			<effect_group>
-				<effect_description level="1" desc_base="天阶下品武器" long_desc_key="解锁技能制作天阶下品武器"/>
-				<effect_description level="2" desc_base="天阶中品武器" long_desc_key="解锁技能制作天阶中品武器"/>
-				<effect_description level="3" desc_base="天阶上品武器" long_desc_key="解锁技能制作天阶上品武器"/>
+				<effect_description level="1" desc_base="天阶下品武器" long_desc_key="解锁技能制作天阶下品武器,制作等级一的天阶武器"/>
+				<effect_description level="2" desc_base="天阶中品武器" long_desc_key="解锁技能制作天阶中品武器,制作等级三的天阶武器"/>
+				<effect_description level="3" desc_base="天阶上品武器" long_desc_key="解锁技能制作天阶上品武器,制作等级六的天阶武器"/>
 			</effect_group>
 		</perk>
 
@@ -66,10 +71,13 @@
 			<level_requirements level="1">
 				<requirement name="ProgressionLevel" progression_name="[FFD700]修仙" operation="GTE" value="10" desc_key="解锁修仙10级"/>
 			</level_requirements>
+
 			<effect_group>
-				<requirement name="ProgressionLevel" progression_name="神器" operation="Equals" value="10"/>
+				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1,1" value="1" tags="神阶武器"/>
+				<passive_effect name="CraftingTier" operation="base_add" level="1" value="5" tags="神器"/>
+			</effect_group>
+			<effect_group>
 				<effect_description level="1" desc_base="神阶武器" long_desc_key="解锁技能制作神阶武器"/>
-				<passive_effect name="RecipeTagUnlocked" operation="base_set" level="1" value="1" tags="神阶武器解锁"/>
 			</effect_group>
 		</perk>
 

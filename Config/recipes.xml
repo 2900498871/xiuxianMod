@@ -27,29 +27,48 @@
 
 
 	<!--*************************************************武器合成*******************************************************-->
-	<recipe name="[CCFF80]★玄阶下品木棒" count="1"  tags="workbenchCrafting">
+
+
+	<recipe name="[CCFF80]★玄阶下品木棒" count="1"  tags="learnable,玄阶下品武器,玄阶武器">
 		<ingredient name="meleeWpnClubT0WoodenClub" count="1"/>
 		<ingredient name="下品灵石" count="50"/>
+		<effect_group>
+			<passive_effect name="CraftingIngredientCount" level="2,6" operation="perc_add" value="1.5" tags="下品灵石"/>
+		</effect_group>
 	</recipe>
-	<recipe name="[2894FF]★★玄阶中品木棒" count="1"  tags="workbenchCrafting">
+	<recipe name="[2894FF]★★玄阶中品木棒" count="1"  tags="learnable,玄阶中品武器,玄阶武器">
 		<ingredient name="[CCFF80]★玄阶下品木棒" count="1"/>
 		<ingredient name="下品灵石" count="250"/>
+		<effect_group>
+			<passive_effect name="CraftingIngredientCount" level="2,6" operation="perc_add" value="1.5" tags="下品灵石"/>
+		</effect_group>
 	</recipe>
-	<recipe name="[019858]★★★玄阶上品木棒" count="1"  tags="workbenchCrafting">
+	<recipe name="[019858]★★★玄阶上品木棒" count="1"  tags="learnable,玄阶武器,玄阶上品武器">
 		<ingredient name="[2894FF]★★玄阶中品木棒" count="1"/>
 		<ingredient name="下品灵石" count="500"/>
+		<effect_group>
+			<passive_effect name="CraftingIngredientCount" level="2,6" operation="perc_add" value="1.5" tags="下品灵石"/>
+		</effect_group>
 	</recipe>
-	<recipe name="[FFFF93]★★★★天阶下品木棒" count="1" craft_area="[7E3D76]仙器炼制台"  tags="workbenchCrafting">
+	<recipe name="[FFFF93]★★★★天阶下品木棒" count="1" craft_area="[7E3D76]仙器炼制台"  tags="learnable,天阶下品武器,天阶武器">
 		<ingredient name="[019858]★★★玄阶上品木棒" count="1"/>
 		<ingredient name="中品灵石" count="300"/>
+		<effect_group>
+			<passive_effect name="CraftingIngredientCount" level="2,6" operation="perc_add" value="1.5" tags="下品灵石"/>
+		</effect_group>
 	</recipe>
-	<recipe name="[EAC100]★★★★★天阶中品木棒" count="1" craft_area="[7E3D76]仙器炼制台"  tags="workbenchCrafting">
+	<recipe name="[EAC100]★★★★★天阶中品木棒" count="1" craft_area="[7E3D76]仙器炼制台"  tags="learnable,天阶中品武器,天阶武器">
 		<ingredient name="[FFFF93]★★★★天阶下品木棒" count="1"/>
 		<ingredient name="中品灵石" count="600"/>
 	</recipe>
-	<recipe name="[D26900]★★★★★★天阶上品木棒" count="1" craft_area="[7E3D76]仙器炼制台"  tags="workbenchCrafting">
+	<recipe name="[D26900]★★★★★★天阶上品木棒" count="1" craft_area="[7E3D76]仙器炼制台"  tags="learnable,天阶上品武器,天阶武器">
 		<ingredient name="[EAC100]★★★★★天阶中品木棒" count="1"/>
 		<ingredient name="中品灵石" count="1000"/>
+	</recipe>
+
+	<recipe name="[D26900]神级木棒" count="1" craft_area="[7E3D76]仙器炼制台"  tags="learnable,神阶武器,神器">
+		<ingredient name="[D26900]★★★★★★天阶上品木棒" count="1"/>
+		<ingredient name="上品灵石" count="500"/>
 	</recipe>
 
 
